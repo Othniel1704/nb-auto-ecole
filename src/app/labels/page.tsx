@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -35,6 +36,54 @@ const qualityPoints = [
   }
 ];
 
+interface PartnerLabel {
+  name: string;
+  description: string;
+  imageUrl: string;
+  imageHint: string;
+  imageWidth?: number;
+  imageHeight?: number;
+}
+
+const partnerLogos: PartnerLabel[] = [
+  {
+    name: "Certifié Qualiopi",
+    description: "Notre organisme est officiellement certifié Qualiopi. Cette certification atteste de la qualité de nos processus de formation et de notre engagement envers l'amélioration continue.",
+    imageUrl: "https://placehold.co/200x100.png",
+    imageHint: "Qualiopi logo",
+  },
+  {
+    name: "École de Conduite Qualité",
+    description: "Gage de notre engagement pour une formation de qualité, reconnue par les professionnels du secteur.",
+    imageUrl: "https://placehold.co/200x100.png",
+    imageHint: "quality school",
+  },
+  {
+    name: "Partenaire Région Île-de-France",
+    description: "Nous vous accompagnons dans les démarches pour les aides régionales à la formation au permis de conduire.",
+    imageUrl: "https://placehold.co/180x120.png",
+    imageHint: "iledefrance logo",
+  },
+  {
+    name: "Référencé France Travail",
+    description: "Nos formations peuvent être éligibles à des financements via France Travail (anciennement Pôle Emploi).",
+    imageUrl: "https://placehold.co/200x100.png",
+    imageHint: "francetravail logo",
+  },
+  {
+    name: "Éligible Mon Compte CPF",
+    description: "Financez votre permis de conduire grâce à votre Compte Personnel de Formation (CPF).",
+    imageUrl: "https://placehold.co/200x100.png",
+    imageHint: "cpf logo",
+  },
+  {
+    name: "Partenaire Code Rousseau",
+    description: "Nous utilisons les outils pédagogiques de Code Rousseau, leader de la formation au code de la route.",
+    imageUrl: "https://placehold.co/200x100.png",
+    imageHint: "rousseau logo",
+  },
+];
+
 export default function LabelsPage() {
   return (
     <>
@@ -62,13 +111,13 @@ export default function LabelsPage() {
             <CardContent>
               <CardDescription className="text-center mb-4">{point.description}</CardDescription>
               <div className="flex justify-center">
-                <Image 
-                  src={point.image} 
-                  alt={`${point.title} icon`} 
-                  width={150} 
-                  height={100} 
+                <Image
+                  src={point.image}
+                  alt={`${point.title} icon`}
+                  width={150}
+                  height={100}
                   className="rounded object-contain"
-                  data-ai-hint={point.imageHint} 
+                  data-ai-hint={point.imageHint}
                 />
               </div>
             </CardContent>
@@ -91,27 +140,37 @@ export default function LabelsPage() {
         </ul>
       </section>
 
-      <SectionTitle
-        title="Bientôt certifié Qualiopi ?"
-        subtitle="Nous travaillons activement à l'obtention de la certification Qualiopi, gage de la qualité de nos processus de formation."
-        centered
-        className="mt-12 md:mt-16"
-      />
-      <div className="flex justify-center">
-         <Image 
-            src="https://placehold.co/300x150.png" 
-            alt="Label Qualiopi (en cours)" 
-            width={300} 
-            height={150} 
-            className="rounded"
-            data-ai-hint="Qualiopi logo"
+      <section className="mt-12 md:mt-16">
+        <SectionTitle
+          title="Nos Labels et Partenariats Officiels"
+          subtitle="Des reconnaissances qui attestent de notre sérieux et facilitent votre parcours vers le permis."
+          centered
         />
-      </div>
-      <p className="text-center text-muted-foreground mt-4">
-        La certification Qualiopi atteste de la qualité du processus mis en œuvre par les prestataires d&apos;actions concourant au développement des compétences.
-      </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {partnerLogos.map((partner, index) => (
+            <Card key={index} className="hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <CardHeader className="items-center text-center">
+                <CardTitle>{partner.name}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center flex flex-col flex-grow items-center">
+                <Image
+                  src={partner.imageUrl}
+                  alt={partner.name}
+                  width={partner.imageWidth || 180}
+                  height={partner.imageHeight || 90}
+                  className="rounded mx-auto mb-4 object-contain"
+                  data-ai-hint={partner.imageHint}
+                />
+                <CardDescription className="mt-auto">{partner.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
     </div>
     </>
   );
 }
+
+    

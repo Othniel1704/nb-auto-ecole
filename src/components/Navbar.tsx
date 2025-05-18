@@ -1,3 +1,7 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2259079398.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1066292624.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2231036138.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1899752081.
 
 "use client";
 
@@ -66,12 +70,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" prefetch={false}>
-          <CarFront className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold text-primary">DriveReady</span>
+        <Link href="/" className="flex items-center gap-2 ml-4" onClick={() => setIsMobileMenuOpen(false)}>
+            <img src=" ../logo.png" alt="logo" className="h-7 w-7 " />
+            <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
         </Link>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex mr-3">
           <NavLinks />
         </div>
 
