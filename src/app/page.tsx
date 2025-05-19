@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button} from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock, Car } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 
@@ -23,7 +23,7 @@ export default function HomePage() {
       <section id="about" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <SectionTitle
-            title="Bienvenue chez DriveReady"
+            title="Bienvenue chez NB AUTO ÉCOLE"
             subtitle="L'auto-école de la Mairie à Vigneux-sur-Seine, dédiée à votre succès sur la route."
             centered
           />
@@ -50,9 +50,9 @@ export default function HomePage() {
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  <Card>
  <CardHeader>
- <CardTitle className="flex items-center"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
+ <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
  </CardHeader>
- <CardContent className="space-y-2 text-muted-foreground">
+ <CardContent className="space-y-2 text-sm text-muted-foreground">
  <p className="flex items-center"><MapPin className="mr-2 h-4 w-4 opacity-75"/>91270 Vigneux-sur-Seine</p>
  <p className="flex items-center"><Phone className="mr-2 h-4 w-4 opacity-75"/>01.69.56.10.70</p>
  <p className="flex items-center"><Mail className="mr-2 h-4 w-4 opacity-75"/>nbcontact.conduite@gmail.com</p>
@@ -61,10 +61,9 @@ export default function HomePage() {
 
  <Card>
  <CardHeader>
- <CardTitle className="flex items-center"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
+ <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
  </CardHeader>
- <CardContent className="space-y-2 text-muted-foreground">
- {/* Need actual hours data */}
+ <CardContent className="space-y-2 text-sm text-muted-foreground">
  <p>Lundi : 10h00 - 12h00, 14h00 - 18h00</p>
  <p>Mardi : 10h00 - 12h00, 14h00 - 18h00</p>
  <p>Mercredi : Fermé</p>
@@ -76,20 +75,20 @@ export default function HomePage() {
 
  <Card className="md:col-span-2">
  <CardHeader>
- <CardTitle className="flex items-center"><Award className="mr-2 h-5 w-5 text-primary"/>Nos Points Forts</CardTitle>
+ <CardTitle className="flex items-center text-lg md:text-xl"><Award className="mr-2 h-5 w-5 text-primary"/>Nos Points Forts</CardTitle>
  </CardHeader>
- <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-muted-foreground">
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Formation de qualité et transparente</p>
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Taux de réussite élevé</p>
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Certifications (Qualiopi)</p>
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Accompagnement personnalisé</p>
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Véhicules conformes et entretenus</p>
- <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1"/>Démarches administratives prises en charge</p>
+ <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Formation de qualité et transparente</p>
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Taux de réussite élevé</p>
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Certifications (Qualiopi)</p>
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Accompagnement personnalisé</p>
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Véhicules conformes et entretenus</p>
+ <p className="flex items-start"><CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-1 shrink-0"/>Démarches administratives prises en charge</p>
  </CardContent>
  </Card>
  </div>
  <Button asChild size="lg" className="mt-6 w-full">
- <Link href="#contact">Nous Contacter</Link>
+ <Link href="/contact">Nous Contacter</Link>
               </Button>
             </div>
           </div>
@@ -104,18 +103,19 @@ export default function HomePage() {
             subtitle="Des programmes adaptés à vos besoins pour apprendre à conduire en toute confiance."
             centered
           />
-          <div className="grid md:grid-cols-3 gap-8">
-            {[ /* Placeholder descriptions, full details on courses page */
-              { title: "Permis B", description: "La formation classique pour votre permis de conduire.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
-              { title: "Conduite Accompagnée (AAC)", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#aac" },
-              { title: "Permis Boîte Automatique (BEA)", description: "Facilité d'apprentissage sur véhicule automatique.", icon: <Award className="h-12 w-12 text-primary mb-4" />, link: "/courses#bea" },
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[ 
+              { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
+              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#aac" },
+              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <Award className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" }, // Lien à ajuster si section spécifique BEA
             ].map((service) => (
-              <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
+              <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
+                <CardHeader className="items-center">
+                  {service.icon}
+                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="mb-4">{service.description}</CardDescription>
+                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription> {/* Fixed height for description for alignment */}
                   <Button asChild variant="link" className="text-primary hover:text-primary/80">
                      <Link href={service.link}>Détails <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
@@ -140,7 +140,7 @@ export default function HomePage() {
             centered
           />
           <div className="grid md:grid-cols-2 gap-8">
-            {[ /* Placeholder testimonials, more on testimonials page */
+            {[ 
               { quote: "Une équipe formidable et très professionnelle. J'ai obtenu mon permis rapidement grâce à leurs conseils !", author: "Sophie D." },
               { quote: "Très bonne auto-école, les moniteurs sont super sympas et professionnels. Je recommande vivement !", author: "Marc L." },
             ].map((testimonial, index) => (
@@ -175,22 +175,23 @@ export default function HomePage() {
           </Button>
 
  {/* Google Map Embed */}
- <div className="mt-16">
- <h3 className="text-2xl font-bold mb-6">Où nous trouver ?</h3>
- <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+ <div className="mt-12 md:mt-16">
+ <h3 className="text-2xl md:text-3xl font-bold mb-6">Où nous trouver ?</h3>
+ <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
  {/* Replace the src with the actual embed code from Google Maps */}
  <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dXXXXX!2dXXXXX!3dXXXXX!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5e1f3f3a8f83d%3A0x9a4f1f9c9f3b8c9!2sNB%20AUTO%20%C3%89COLE%20DE%20LA%20MAIRIE!5e0!3m2!1sfr!2sfr!4vYYYYYYYYYY"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.8940321170756!2d2.4334380768779623!3d48.72300310996965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5e1f3f3a8f83d%3A0x9a4f1f9c9f3b8c9!2sNB%20AUTO%20%C3%89COLE%20DE%20LA%20MAIRIE!5e0!3m2!1sfr!2sfr!4v1710423875121!5m2!1sfr!2sfr"
                 width="100%"
-                height="450"
+                height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Carte de localisation NB Auto École de la Mairie"
  ></iframe>
  </div>
  <div className="mt-8 text-center">
- <Link href="https://auto-ecole.codesrousseau.fr/connexion" target="_blank" rel="noopener noreferrer" className="text-lg underline hover:no-underline">Accès à l'Espace Élève Codes Rousseau</Link>
+ <Link href="https://auto-ecole.codesrousseau.fr/connexion" target="_blank" rel="noopener noreferrer" className="text-lg underline hover:no-underline hover:text-accent-foreground transition-colors">Accès à l&apos;Espace Élève Codes Rousseau</Link>
  </div>
  </div>
         </div>
@@ -198,3 +199,4 @@ export default function HomePage() {
     </div>
   );
 }
+
