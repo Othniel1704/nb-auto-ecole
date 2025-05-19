@@ -69,9 +69,9 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 ml-4" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src=" ../logo.png" alt="logo" className="h-7 w-7 " />
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+ <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+            <img src="/images/logo.png" alt="logo" className="h-7 w-7 " />
             <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
         </Link>
 
@@ -91,7 +91,7 @@ export function Navbar() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                      <CarFront className="h-6 w-6 text-primary" />
+ <img src="/images/logo.png" alt="logo" className="h-6 w-6" />
                       <span className="text-lg font-bold text-primary">DriveReady</span>
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>

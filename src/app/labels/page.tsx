@@ -10,28 +10,28 @@ const qualityPoints = [
     icon: <Award className="h-10 w-10 text-primary mb-4" />,
     title: "Agrément Préfectoral",
     description: "NB AUTO ÉCOLE DE LA MAIRIE est une auto-école agréée par la Préfecture, garantissant le respect des normes d'enseignement et de sécurité.",
-    image: "https://placehold.co/150x100.png",
+ image: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "official stamp"
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary mb-4" />,
     title: "Moniteurs Diplômés d'État",
     description: "Notre équipe est composée exclusivement de moniteurs titulaires du BEPECASER ou du Titre Professionnel ECSR, assurant une pédagogie de qualité.",
-    image: "https://placehold.co/150x100.png",
+ image: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "certificate diploma"
   },
   {
     icon: <Star className="h-10 w-10 text-primary mb-4" />,
     title: "Engagement Qualité",
     description: "Nous nous engageons à fournir une formation transparente, un suivi personnalisé et des conditions d'apprentissage optimales pour tous nos élèves.",
-    image: "https://placehold.co/150x100.png",
+ image: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "quality seal"
   },
   {
     icon: <ThumbsUp className="h-10 w-10 text-primary mb-4" />,
     title: "Taux de Réussite Élevé (Objectif)",
     description: "Nous mettons tout en œuvre pour maximiser vos chances de réussite aux examens du code et de la conduite. Nos méthodes visent un taux de réussite supérieur à la moyenne nationale.",
-    image: "https://placehold.co/150x100.png",
+ image: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "graph success"
   }
 ];
@@ -49,37 +49,37 @@ const partnerLogos: PartnerLabel[] = [
   {
     name: "Certifié Qualiopi",
     description: "Notre organisme est officiellement certifié Qualiopi. Cette certification atteste de la qualité de nos processus de formation et de notre engagement envers l'amélioration continue.",
-    imageUrl: "https://placehold.co/200x100.png",
+ imageUrl: "/images/LogoQualiopi.png",
     imageHint: "Qualiopi logo",
   },
   {
     name: "École de Conduite Qualité",
     description: "Gage de notre engagement pour une formation de qualité, reconnue par les professionnels du secteur.",
-    imageUrl: "https://placehold.co/200x100.png",
+ imageUrl: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "quality school",
   },
   {
     name: "Partenaire Région Île-de-France",
     description: "Nous vous accompagnons dans les démarches pour les aides régionales à la formation au permis de conduire.",
-    imageUrl: "https://placehold.co/180x120.png",
+ imageUrl: "/images/logo.jpg", // Assuming a generic logo for this example, replace if you have a specific one
     imageHint: "iledefrance logo",
   },
   {
     name: "Référencé France Travail",
     description: "Nos formations peuvent être éligibles à des financements via France Travail (anciennement Pôle Emploi).",
-    imageUrl: "https://placehold.co/200x100.png",
+ imageUrl: "/images/logo-france-travail.png",
     imageHint: "francetravail logo",
   },
   {
     name: "Éligible Mon Compte CPF",
     description: "Financez votre permis de conduire grâce à votre Compte Personnel de Formation (CPF).",
-    imageUrl: "https://placehold.co/200x100.png",
+ imageUrl: "/images/Logo-Mon-Compte-Formation-Appli-CPF.jpg", // Assuming a generic logo for this example, replace if you have a specific one
     imageHint: "cpf logo",
   },
   {
     name: "Partenaire Code Rousseau",
     description: "Nous utilisons les outils pédagogiques de Code Rousseau, leader de la formation au code de la route.",
-    imageUrl: "https://placehold.co/200x100.png",
+ imageUrl: "/images/coderousseau.jpg", // Assuming a generic logo for this example, replace if you have a specific one
     imageHint: "rousseau logo",
   },
 ];
