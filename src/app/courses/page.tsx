@@ -1,92 +1,323 @@
 
 import { SectionTitle } from "@/components/ui/section-title";
-import { CourseCard, type Course } from "@/components/CourseCard";
+import { CourseCard, type Course as CourseCardType } from "@/components/CourseCard"; // Renamed to avoid conflict
 import { HeroSection } from "@/components/ui/hero-section";
 
-const coursesData: Course[] = [
+// Define the detailed course data structure based on user input
+export interface PackageItem {
+  title: string;
+  price: number | string;
+  duration?: string;
+  features: string[];
+  notes?: string[];
+}
+
+export interface CourseDetails {
+  description: string;
+  prerequisites?: string[];
+  program?: string[];
+  advantages?: string[];
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  shortDescription: string;
+  categories?: string[];
+  packages: PackageItem[];
+  details?: CourseDetails;
+  ageRequirement?: string;
+  imageUrl: string; // Added for CourseCard
+  imageHint: string; // Added for CourseCard
+}
+
+export const coursesData: Course[] = [
   {
     id: "permis-b",
     title: "Permis B (Voiture)",
     shortDescription: "Formation complète pour l'examen du permis de conduire, disponible en boîte manuelle ou automatique, avec ou sans formation code incluse.",
-    longDescription: "Notre formation au Permis B vous prépare intégralement à l'examen théorique (code de la route si option choisie) et pratique. Elle inclut des leçons de conduite personnalisées sur boîte manuelle (20h min.) ou automatique (13h min.), l'accès à des outils de révision du code en ligne, et un accompagnement jusqu'à l'examen.",
+    categories: ["permis-b"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "car steering wheel",
-    price: "À partir de 860€", // Le moins cher: B Auto sans code (860€)
-    features: [
-      "Formation code en option (en salle et en ligne)",
-      "Leçons de conduite sur boîte manuelle ou automatique",
-      "Suivi pédagogique personnalisé",
-      "Accompagnement à l'examen pratique",
-      "Kit pédagogique numérique",
+    imageHint: "car driving lesson",
+    packages: [
+      {
+        title: "Boîte Manuelle - 20 leçons sans code",
+        price: 1180,
+        duration: "20 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Livret numérique",
+          "20 leçons de conduite (50min)",
+          "Accompagnement à l'examen pratique",
+          "1 disque A ou AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      },
+      {
+        title: "Boîte Manuelle - 20 leçons avec code",
+        price: 1300,
+        duration: "20 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Code en ligne (3 mois)",
+          "Code en salle (3 mois)",
+          "Livret numérique",
+          "20 leçons de conduite (50min)",
+          "Accompagnement à l'examen pratique",
+          "1 disque A ou AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      },
+      {
+        title: "Boîte Automatique - 13 leçons sans code",
+        price: 860,
+        duration: "13 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Livret numérique",
+          "13 leçons de conduite (50min)",
+          "Accompagnement à l'examen pratique",
+          "1 disque A ou AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      },
+      {
+        title: "Boîte Automatique - 13 leçons avec code",
+        price: 970,
+        duration: "13 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Code en ligne (3 mois)",
+          "Code en salle (3 mois)",
+          "Livret numérique",
+          "13 leçons de conduite (50min)",
+          "Accompagnement à l'examen pratique",
+          "1 disque A ou AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      },
+      {
+        title: "Boîte Automatique - 20 leçons avec code",
+        price: 1300, // Corrected based on potential user intent from other BVA 20h
+        duration: "20 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Code en ligne (3 mois)",
+          "Code en salle (3 mois)",
+          "Livret numérique",
+          "20 leçons de conduite (50min)",
+          "Accompagnement à l'examen pratique",
+          "1 disque A ou AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      }
     ],
+    details: {
+      description: "Formation complète pour obtenir le permis de conduire catégorie B, avec différentes options selon le type de transmission (manuelle ou automatique) et l'inclusion du code de la route.",
+      prerequisites: [
+        "Avoir au moins 17 ans pour la formation classique",
+        "Avoir 15 ans minimum pour la conduite accompagnée (AAC)"
+      ],
+      program: [
+        "Évaluation de départ (obligatoire, facturée séparément)",
+        "Formation théorique (code de la route) si incluse",
+        "Formation pratique avec un enseignant diplômé",
+        "Préparation à l'examen pratique"
+      ]
+    }
   },
   {
-    id: "aac",
+    id: "conduite-accompagnee",
     title: "Conduite Accompagnée (AAC)",
-    shortDescription: "Apprenez à conduire dès 15 ans et gagnez en expérience. Disponible en boîte manuelle ou automatique.",
-    longDescription: "La Conduite Accompagnée permet de commencer l'apprentissage de la conduite dès 15 ans. Après une formation initiale en auto-école (code + conduite en boîte manuelle ou automatique), l'élève conduit avec un accompagnateur pour acquérir une solide expérience avant de passer le permis.",
+    shortDescription: "Apprentissage anticipé de la conduite à partir de 15 ans, permettant de réduire la période probatoire après l'obtention du permis.",
+    categories: ["permis-b", "jeunes"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "teenager driving lesson",
-    price: "À partir de 1350€", // AAC Auto (1350€)
-    features: [
-      "Formation code + formation initiale pratique (manuelle ou auto)",
-      "Rendez-vous préalable et pédagogiques obligatoires",
-      "Conduite avec accompagnateur (kilométrage et durée selon réglementation)",
-      "Taux de réussite potentiellement plus élevé au permis",
+    packages: [
+      {
+        title: "AAC Boîte Manuelle",
+        price: 1595,
+        duration: "20 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Code en ligne (3 mois)",
+          "Code en salle (3 mois)",
+          "Livret numérique",
+          "20 leçons de conduite (50min)",
+          "1 rendez-vous préalable (2h)",
+          "2 rendez-vous pédagogiques (3h chacun)",
+          "Accompagnement à l'examen pratique",
+          "1 disque AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      },
+      {
+        title: "AAC Boîte Automatique",
+        price: 1350,
+        duration: "13 leçons de 50min",
+        features: [
+          "Gestion administrative",
+          "Code en ligne (3 mois)",
+          "Code en salle (3 mois)",
+          "Livret numérique",
+          "13 leçons de conduite (50min)",
+          "1 rendez-vous préalable (2h)",
+          "2 rendez-vous pédagogiques (3h chacun)",
+          "Accompagnement à l'examen pratique",
+          "1 disque AAC"
+        ],
+        notes: [
+          "Évaluation de départ non comprise",
+          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
+        ]
+      }
     ],
+    details: {
+      description: "L'Apprentissage Anticipé de la Conduite permet de commencer la formation dès 15 ans et d'acquérir une expérience de conduite avec un accompagnateur avant le passage de l'examen du permis.",
+      prerequisites: [
+        "Avoir 15 ans minimum",
+        "Avoir l'accord de l'assureur du véhicule",
+        "Avoir un accompagnateur titulaire du permis B depuis au moins 5 ans"
+      ],
+      program: [
+        "Évaluation de départ",
+        "Formation initiale en auto-école",
+        "Conduite accompagnée (minimum 1 an et 3000 km)",
+        "2 rendez-vous pédagogiques obligatoires",
+        "Passage de l'examen du permis à 17 ans et demi"
+      ],
+      advantages: [
+        "Taux de réussite plus élevé à l'examen",
+        "Période probatoire réduite à 2 ans au lieu de 3",
+        "Prime d'assurance souvent moins élevée"
+      ]
+    },
     ageRequirement: "Dès 15 ans",
   },
   {
-    id: "supervisee",
-    title: "Conduite Supervisée",
-    shortDescription: "Perfectionnez votre conduite avec un accompagnateur après 18 ans, suite à la formation initiale.",
-    longDescription: "La Conduite Supervisée s'adresse aux candidats de plus de 18 ans. Elle permet, après la formation initiale (Permis B manuelle ou automatique) ou après un échec à l'examen pratique, de conduire avec un accompagnateur pour améliorer ses compétences et gagner en confiance.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "adult learning drive",
-    price: "Sur devis (basé sur formation initiale + RDV préalable)",
-    features: [
-      "Accessible après formation initiale (Permis B) ou échec au permis",
-      "Conduite avec un accompagnateur expérimenté",
-      "Rendez-vous préalable obligatoire avec l'auto-école",
-      "Pas de durée minimale ni de kilométrage imposé réglementairement",
-      "Alternative à l'AAC pour les plus de 18 ans",
-    ],
-    ageRequirement: "Dès 18 ans",
-  },
-  {
-    id: "code",
-    title: "Formation Code de la Route",
-    shortDescription: "Préparez efficacement l'examen théorique général (ETG), en salle ou en ligne.",
-    longDescription: "Nous proposons des cours de code en salle animés par des moniteurs, ainsi qu'un accès à des plateformes d'entraînement en ligne (PREPACODE) pour réviser à votre rythme. Notre objectif : votre réussite à l'examen du code.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "traffic signs collage",
-    price: "À partir de 30€", // Code en ligne 3 mois (30€)
-    features: [
-      "Code en salle (optionnel, voir prestations)",
-      "Accès plateforme d'entraînement en ligne PREPACODE (optionnel)",
-      "Tests et examens blancs réguliers",
-      "Livre de code (optionnel, voir prestations)",
-    ],
-  },
-  {
     id: "post-permis",
-    title: "Formation Post Permis",
-    shortDescription: "Réduisez votre période probatoire grâce à cette formation complémentaire (7h).",
-    longDescription: "Destinée aux conducteurs novices, cette formation de 7 heures, réalisée entre 6 et 12 mois après l'obtention du permis, permet de réduire la durée de la période probatoire et de renforcer ses compétences.",
+    title: "Formation Post-Permis",
+    shortDescription: "Stage de sensibilisation permettant de récupérer ses 12 points plus rapidement.",
+    categories: ["perfectionnement"],
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "confident driver road",
-    price: "350€", // Prix fixe
-    features: [
-      "7 heures de formation collective",
-      "Sensibilisation aux risques routiers",
-      "Partage d'expériences",
-      "Réduction de la période probatoire (sous conditions)",
+    packages: [
+      {
+        title: "Formation Post-Permis",
+        price: 350,
+        duration: "7 heures de formation",
+        features: [
+          "Frais administratifs",
+          "7 heures de leçons en salle",
+          "Attestation de formation",
+          "Frais de gestion de dossier"
+        ],
+        notes: [
+          "Payable en une seule fois"
+        ]
+      }
     ],
-    ageRequirement: "Permis obtenu depuis 6 à 12 mois",
+    details: {
+      description: "Cette formation permet aux jeunes conducteurs d'obtenir leurs 12 points plus rapidement s'ils n'ont commis aucune infraction entraînant un retrait de points.",
+      prerequisites: [
+        "Avoir obtenu son permis depuis 6 à 12 mois",
+        "N'avoir commis aucune infraction entraînant une perte de points"
+      ],
+      program: [
+        "Sensibilisation aux risques routiers",
+        "Partage d'expériences",
+        "Analyse de situations de conduite"
+      ],
+      advantages: [
+        "Réduction de la période probatoire (12 points en 2 ans au lieu de 3)",
+        "Pour les anciens AAC : 12 points en 18 mois au lieu de 2 ans"
+      ]
+    },
+    ageRequirement: "Permis obtenu depuis 6 à 12 mois"
   },
+  {
+    id: "prestations-unites",
+    title: "Prestations à l'Unité",
+    shortDescription: "Services individuels disponibles à la carte selon vos besoins spécifiques.",
+    categories: ["permis-b", "code"],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "options list choices",
+    packages: [
+      {
+        title: "Services individuels",
+        price: "Variable", // This indicates the price is per item in features
+        features: [ // These are the actual services with their prices
+          "Gestion administrative - 90€",
+          "Code en salle - 150€",
+          "Code en ligne (valable 3 mois) - 30€",
+          "Extension du code en ligne - 30€",
+          "Redevance examen théorique - 30€",
+          "Livret de code - 15€",
+          "Évaluation de départ sur tablette - 50€",
+          "Évaluation de départ en voiture - 60€",
+          "Leçon de conduite (50mn) - 60€",
+          "Rendez-vous préalable (2h) - 120€",
+          "Rendez-vous pédagogique (3h) - 180€",
+          "Accompagnement à l'examen pratique - 60€"
+        ]
+      }
+    ]
+  }
 ];
 
+// Helper function to calculate the summary price for CourseCard
+function getSummaryPrice(course: Course): string {
+  if (course.id === "prestations-unites") {
+    return "Selon prestation";
+  }
+  if (course.packages && course.packages.length > 0) {
+    const prices = course.packages
+      .map(p => p.price)
+      .filter(p => typeof p === 'number') as number[];
+    if (prices.length > 0) {
+      const minPrice = Math.min(...prices);
+      return `À partir de ${minPrice}€`;
+    }
+  }
+  return "Prix sur demande"; // Fallback
+}
+
 export default function CoursesPage() {
+  const coursesToDisplay: CourseCardType[] = coursesData.map(course => ({
+    id: course.id,
+    title: course.title,
+    shortDescription: course.shortDescription,
+    imageUrl: course.imageUrl,
+    imageHint: course.imageHint,
+    price: getSummaryPrice(course), // Calculated summary price
+    // Map other necessary fields from Course to CourseCardType if needed,
+    // For now, CourseCard mainly uses these + a link.
+    // The detailed 'features' or 'longDescription' are not directly on CourseCard
+    // but can be derived or passed if the CourseCard component evolves.
+    // For simplicity, we keep CourseCard focused on the summary.
+    // Example of passing down some primary features if CourseCard were to display them:
+    // features: course.packages[0]?.features.slice(0,3) || [], 
+    ageRequirement: course.ageRequirement,
+  }));
+
   return (
     <>
       <HeroSection
@@ -103,7 +334,7 @@ export default function CoursesPage() {
           centered
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coursesData.map((course) => (
+          {coursesToDisplay.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
@@ -111,3 +342,5 @@ export default function CoursesPage() {
     </>
   );
 }
+
+    

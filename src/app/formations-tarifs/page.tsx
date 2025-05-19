@@ -3,193 +3,132 @@ import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ListChecks, AlertTriangle } from "lucide-react";
+import { ListChecks, AlertTriangle, Info } from "lucide-react";
+import { coursesData, type Course, type PackageItem } from '../courses/page'; // Import from courses/page
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
-const formationsData = [
-  {
-    id: "permis-b-manuelle-sans-code",
-    title: "Permis B - Boîte Manuelle (Sans Code)",
-    price: "1180 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "20 leçons de conduite (boîte manuelle)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "permis-b-manuelle-avec-code",
-    title: "Permis B - Boîte Manuelle (Avec Code)",
-    price: "1300 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "Formation code (accès salle et en ligne PREPACODE)",
-      "20 leçons de conduite (boîte manuelle)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "permis-b-auto-sans-code",
-    title: "Permis B - Boîte Automatique (Sans Code)",
-    price: "860 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "13 leçons de conduite (boîte automatique)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "permis-b-auto-avec-code",
-    title: "Permis B - Boîte Automatique (Avec Code)",
-    price: "970 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "Formation code (accès salle et en ligne PREPACODE)",
-      "13 leçons de conduite (boîte automatique)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "aac-manuelle",
-    title: "Conduite Accompagnée (AAC) - Manuelle",
-    price: "1595 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "Formation code (accès salle et en ligne PREPACODE)",
-      "20 leçons de conduite (boîte manuelle)",
-      "Rendez-vous préalable (2h)",
-      "2 Rendez-vous pédagogiques (3h chacun)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "aac-automatique",
-    title: "Conduite Accompagnée (AAC) - Automatique",
-    price: "1350 €",
-    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
-    features: [
-      "Formation code (accès salle et en ligne PREPACODE)",
-      "13 leçons de conduite (boîte automatique)",
-      "Rendez-vous préalable (2h)",
-      "2 Rendez-vous pédagogiques (3h chacun)",
-      "Kit pédagogique numérique",
-      "Accompagnement à l’examen pratique (1 présentation)",
-      "Frais de gestion de dossier",
-    ],
-  },
-  {
-    id: "post-permis",
-    title: "Formation Post Permis",
-    price: "350 €",
-    priceDetails: "Tarif valable jusqu’au 31/12/2025",
-    features: [
-      "7 heures de formation collective en salle avec enseignant diplômé",
-      "Attestation de formation",
-    ],
-    objective: "Permet d’obtenir les 12 points du permis plus rapidement (2 ans au lieu de 3 pour la formation traditionnelle, 18 mois au lieu de 2 ans pour la conduite accompagnée).",
-    eligibility: [
-      "Avoir obtenu son premier permis de conduire (A1, A2, B1 ou B)",
-      "Avoir entre 6 mois et 1 an de permis (période probatoire)",
-      "Ne pas avoir commis d’infraction ayant entraîné une perte de points sur son permis ou une mesure de restriction du droit de conduire.",
-    ],
-    documents: [
-      "Pièce d'identité (recto-verso)",
-      "Permis de conduire (recto-verso)",
-      "Justificatif de domicile de moins de 3 mois",
-      "Attestation d’hébergement (si applicable) et pièce d'identité de l'hébergeant",
-    ],
+// Function to extract supplementary services
+const getSupplementaryServices = () => {
+  const prestationsUnitesCourse = coursesData.find(course => course.id === "prestations-unites");
+  if (prestationsUnitesCourse && prestationsUnitesCourse.packages.length > 0) {
+    // Assuming features in "prestations-unites" are strings like "Service Name - Price"
+    return prestationsUnitesCourse.packages[0].features.map(featureString => {
+      const parts = featureString.split(" - ");
+      return {
+        name: parts[0],
+        price: parts.length > 1 ? parts[1] : "N/A",
+      };
+    });
   }
-];
+  return [];
+};
 
-const supplementaryServices = [
-  { name: "Gestion administrative", price: "90 €" },
-  { name: "Code en salle (accès illimité)", price: "150 €" },
-  { name: "Code en ligne PREPACODE (accès 3 mois)", price: "30 €" },
-  { name: "Extension du code en ligne PREPACODE (par 3 mois)", price: "30 €" },
-  { name: "Redevance examen théorique (ETG)", price: "30 €" },
-  { name: "Livret de code", price: "15 €" },
-  { name: "Évaluation de départ (sur tablette)", price: "50 €" },
-  { name: "Évaluation de départ (en voiture)", price: "60 €" },
-  { name: "Leçon de conduite (50mn)", price: "60 €" },
-  { name: "Rendez-vous préalable AAC/Supervisée (2h)", price: "120 €" },
-  { name: "Rendez-vous pédagogique AAC/Supervisée (3h)", price: "180 €" },
-  { name: "Accompagnement à l’examen pratique (supplémentaire)", price: "60 €" },
-];
+const supplementaryServices = getSupplementaryServices();
+
+// Filter out "prestations-unites" for the main formations display
+const mainFormations = coursesData.filter(course => course.id !== "prestations-unites");
 
 const FormationsTarifsPage: React.FC = () => {
   return (
     <>
       <HeroSection
-        title="Nos Formations & Tarifs"
+        title="Nos Formations & Tarifs Détaillés"
         subtitle="Découvrez toutes nos formules et prestations pour vous accompagner vers la réussite de votre permis."
         imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Tableau de tarifs"
         imageHint="price list calculator"
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <section className="mb-12">
+        <section id="main-formations" className="mb-12">
           <SectionTitle
             title="Nos Formules Permis & AAC"
             subtitle="Des packs complets adaptés à chaque besoin et chaque profil d'apprenti conducteur."
             centered
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {formationsData.map((formation) => (
-              <Card key={formation.id} className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="p-4 md:p-6 bg-muted/50">
-                  <CardTitle className="text-xl md:text-2xl text-primary">{formation.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 md:p-6 flex-grow space-y-3">
-                  <p className="text-2xl font-bold text-accent mb-2">{formation.price}</p>
-                  {formation.priceDetails && <p className="text-xs text-muted-foreground mb-3">{formation.priceDetails}</p>}
-                  
-                  {formation.features && formation.features.length > 0 && (
-                    <>
-                      <h4 className="font-semibold text-foreground flex items-center"><ListChecks className="h-5 w-5 mr-2 text-primary" /> Inclus :</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
-                        {formation.features.map((feature, index) => <li key={index}>{feature}</li>)}
-                      </ul>
-                    </>
-                  )}
-
-                  {formation.objective && (
-                    <>
-                      <h4 className="font-semibold text-foreground mt-3">Objectif :</h4>
-                      <p className="text-sm text-muted-foreground">{formation.objective}</p>
-                    </>
-                  )}
-                  {formation.eligibility && formation.eligibility.length > 0 && (
-                    <>
-                      <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
-                        {formation.eligibility.map((item, index) => <li key={index}>{item}</li>)}
-                      </ul>
-                    </>
-                  )}
-                  {formation.documents && formation.documents.length > 0 && (
-                    <>
-                      <h4 className="font-semibold text-foreground mt-3">Pièces à fournir :</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
-                        {formation.documents.map((item, index) => <li key={index}>{item}</li>)}
-                      </ul>
-                    </>
-                  )}
-                </CardContent>
-              </Card>
+          <div className="space-y-10">
+            {mainFormations.map((course: Course) => (
+              <div key={course.id} id={course.id} className="scroll-mt-20">
+                <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-6 text-center">{course.title}</h3>
+                {course.details?.description && <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">{course.details.description}</p>}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {course.packages.map((pkg: PackageItem, index: number) => (
+                    <Card key={`${course.id}-${index}`} className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
+                      <CardHeader className="p-4 md:p-6 bg-muted/50">
+                        <CardTitle className="text-xl md:text-2xl text-foreground">{pkg.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-4 md:p-6 flex-grow space-y-3">
+                        <p className="text-2xl font-bold text-accent mb-2">{typeof pkg.price === 'number' ? `${pkg.price} €` : pkg.price}</p>
+                        {pkg.duration && <p className="text-sm text-muted-foreground mb-3">Durée indicative : {pkg.duration}</p>}
+                        
+                        {pkg.features && pkg.features.length > 0 && (
+                          <>
+                            <h4 className="font-semibold text-foreground flex items-center"><ListChecks className="h-5 w-5 mr-2 text-primary" /> Inclus :</h4>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                              {pkg.features.map((feature, fIndex) => <li key={fIndex}>{feature}</li>)}
+                            </ul>
+                          </>
+                        )}
+                        {pkg.notes && pkg.notes.length > 0 && (
+                          <>
+                            <h4 className="font-semibold text-foreground mt-3 flex items-center"><Info className="h-5 w-5 mr-2 text-blue-500" /> À noter :</h4>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                              {pkg.notes.map((note, nIndex) => <li key={nIndex}>{note}</li>)}
+                            </ul>
+                          </>
+                        )}
+                         {/* Specific details for Post Permis */}
+                        {course.id === "post-permis" && course.details && (
+                          <div className="mt-4">
+                            {course.details.prerequisites && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    {course.details.prerequisites.map((item, idx) => <li key={`prereq-${idx}`}>{item}</li>)}
+                                </ul>
+                                </>
+                            )}
+                            {course.details.program && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Programme :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    {course.details.program.map((item, idx) => <li key={`prog-${idx}`}>{item}</li>)}
+                                </ul>
+                                </>
+                            )}
+                            {course.details.advantages && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Avantages :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    {course.details.advantages.map((item, idx) => <li key={`adv-${idx}`}>{item}</li>)}
+                                </ul>
+                                </>
+                            )}
+                          </div>
+                        )}
+                      </CardContent>
+                      <CardFooter className="p-4 md:p-6">
+                        <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                          <Link href={`/contact?course=${encodeURIComponent(course.title + " - " + pkg.title)}`}>S&apos;inscrire ou Devis</Link>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+                {course.details?.prerequisites && course.id !== "post-permis" && (
+                    <div className="mt-6 p-4 bg-secondary rounded-md">
+                        <h4 className="font-semibold text-foreground mb-2">Prérequis généraux pour {course.title}:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                            {course.details.prerequisites.map((prereq, pIdx) => <li key={`prereq-detail-${pIdx}`}>{prereq}</li>)}
+                        </ul>
+                    </div>
+                )}
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="supplementary-services" className="mb-12">
           <SectionTitle
             title="Prestations Supplémentaires & à la Carte"
             subtitle="Des options pour compléter votre formation ou répondre à des besoins spécifiques."
@@ -226,10 +165,11 @@ const FormationsTarifsPage: React.FC = () => {
             </CardHeader>
             <CardContent className="p-4 md:p-6">
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>L’évaluation de départ (obligatoire avant la signature du contrat) n’est pas comprise dans les forfaits (voir tarifs des prestations supplémentaires).</li>
+                <li>L’évaluation de départ (obligatoire avant la signature du contrat) n’est pas comprise dans les forfaits (voir tarifs des prestations à l'unité).</li>
                 <li>Toute leçon de conduite non annulée au minimum 48 heures ouvrables à l’avance sera facturée (sauf présentation d’un justificatif médical).</li>
-                <li>Les tarifs des forfaits sont valables pour la période indiquée. Les prix sont susceptibles d'être ajustés.</li>
+                <li>Les tarifs sont valables jusqu’au 31/12/2025 sauf indication contraire, et sont susceptibles d'être ajustés.</li>
                 <li>La redevance examen théorique (30€) est à régler directement au centre d'examen agréé par l'État.</li>
+                <li>Les forfaits code (en ligne / en salle) sont valables 3 mois.</li>
               </ul>
             </CardContent>
           </Card>
@@ -240,3 +180,5 @@ const FormationsTarifsPage: React.FC = () => {
 };
 
 export default FormationsTarifsPage;
+
+    

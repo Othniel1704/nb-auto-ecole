@@ -73,7 +73,7 @@ export default function AboutPage() {
               <Building className="h-6 w-6 mr-2 text-primary" /> Nos Locaux
             </h3>
             <p className="text-muted-foreground mb-4">
-              Notre auto-école, située au <strong>50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</strong>, vous accueille dans des locaux modernes et climatisés. Nous disposons de salles de code équipées des derniers outils pédagogiques pour un apprentissage interactif et efficace.
+              Notre auto-école, située au <strong> 50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</strong>, vous accueille dans des locaux modernes et climatisés. Nous disposons de salles de code équipées des derniers outils pédagogiques pour un apprentissage interactif et efficace.
             </p>
             <Image
               src="https://placehold.co/600x400.png"
