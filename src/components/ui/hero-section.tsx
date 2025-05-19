@@ -34,7 +34,7 @@ export function HeroSection({
           alt={imageAlt}
           layout="fill"
           objectFit="cover"
-          className="opacity-20"
+          className="opacity-85"
           data-ai-hint={imageHint}
         />
       )}

@@ -1,143 +1,128 @@
+
 import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // Ajouté pour potentiellement styler les cartes
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ListChecks, AlertTriangle } from "lucide-react";
 
 const formationsData = [
   {
-    title: "Code à l’auto-école",
-    price: "150 €",
-    features: [
-      "Gestion administrative",
-      "Cours + tests + accompagnement pédagogique en ligne",
-      "Séances de tests à l’auto-école",
-    ],
-    id: "code-ecole"
-  },
-  {
-    title: "Formule B Conduite Accompagnée (AAC Traditionnelle)",
-    price: "1595 €",
-    features: [
-      "Gestion administrative",
-      "Formation code en ligne",
-      "Formation code classique",
-      "Kit de formation pratique",
-      "20 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-      "Rendez-vous préalable",
-      "Rendez-vous pédagogique pratique",
-      "Livret numérique",
-      "1 disque A ou AAC",
-    ],
-    id: "aac-traditionnelle"
-  },
-  {
-    title: "Formule B Traditionnelle (Boîte Manuelle)",
-    price: "1300 €",
-    features: [
-      "Gestion administrative",
-      "Formation code en ligne",
-      "Formation code classique",
-      "Kit de formation pratique",
-      "20 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-    ],
-    id: "b-manuelle"
-  },
-  {
-    title: "Formule B Boîte Automatique (13h avec code)",
-    price: "970 €",
-    features: [
-      "Gestion administrative",
-      "Formation code en ligne",
-      "Formation code classique",
-      "Kit de formation pratique",
-      "13 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-    ],
-    id: "b-auto-13h-code"
-  },
-  {
-    title: "Formule B Boîte Automatique (20h avec code)",
-    price: "1300 €",
-    features: [
-      "Gestion administrative",
-      "Formation code en ligne",
-      "Formation code classique",
-      "Kit de formation pratique",
-      "20 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-    ],
-    id: "b-auto-20h-code"
-  },
-  {
-    title: "Formule B Conduite Accompagnée Boîte Automatique (AAC Automatique)",
-    price: "1350 €",
-    features: [
-      "Gestion administrative",
-      "Formation code en ligne",
-      "Formation code classique",
-      "Kit de formation pratique",
-      "13 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-      "Rendez-vous préalable",
-      "Rendez-vous pédagogique pratique",
-      "Livret numérique",
-      "1 disque A ou AAC",
-    ],
-    id: "aac-automatique"
-  },
-  {
-    title: "Formule B Traditionnelle (Boîte Manuelle, sans code)",
+    id: "permis-b-manuelle-sans-code",
+    title: "Permis B - Boîte Manuelle (Sans Code)",
     price: "1180 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
     features: [
-      "Gestion administrative",
-      "Kit de formation pratique",
-      "20 leçons de conduite",
-      "Cours de préparation à l’interrogation orale",
-      "Frais d’accompagnement à l’examen pratique",
-    ],
-    id: "b-manuelle-sans-code"
-  },
-  {
-    title: "Formule B Boîte Automatique (13h, sans code)",
-    price: "860 €",
-    features: [
-      "Gestion administrative",
-      "Kit de formation pratique",
-      "13 leçons de conduite",
-      "Frais d’accompagnement à l’examen pratique",
-    ],
-    id: "b-auto-13h-sans-code"
-  },
-  {
-    title: "Formule B - Post Permis",
-    price: "350 €",
-    priceDetails: "(payable en 1 échéance, tarif valable jusqu’au 31/12/2025)",
-    features: [
-      "Frais administratifs (création, modification, mise à jour de dossier, gestion interne, programmation, suivi…)",
-      "7 leçons en salle avec enseignant diplômé",
-      "Attestation de formation",
+      "20 leçons de conduite (boîte manuelle)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
       "Frais de gestion de dossier",
     ],
-    objective: "Permet d’obtenir les 12 points du permis plus rapidement (2 ans au lieu de 3 pour la formation traditionnelle, 18 mois au lieu de 2 ans pour la conduite accompagnée)",
+  },
+  {
+    id: "permis-b-manuelle-avec-code",
+    title: "Permis B - Boîte Manuelle (Avec Code)",
+    price: "1300 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
+    features: [
+      "Formation code (accès salle et en ligne PREPACODE)",
+      "20 leçons de conduite (boîte manuelle)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
+      "Frais de gestion de dossier",
+    ],
+  },
+  {
+    id: "permis-b-auto-sans-code",
+    title: "Permis B - Boîte Automatique (Sans Code)",
+    price: "860 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
+    features: [
+      "13 leçons de conduite (boîte automatique)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
+      "Frais de gestion de dossier",
+    ],
+  },
+  {
+    id: "permis-b-auto-avec-code",
+    title: "Permis B - Boîte Automatique (Avec Code)",
+    price: "970 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
+    features: [
+      "Formation code (accès salle et en ligne PREPACODE)",
+      "13 leçons de conduite (boîte automatique)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
+      "Frais de gestion de dossier",
+    ],
+  },
+  {
+    id: "aac-manuelle",
+    title: "Conduite Accompagnée (AAC) - Manuelle",
+    price: "1595 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
+    features: [
+      "Formation code (accès salle et en ligne PREPACODE)",
+      "20 leçons de conduite (boîte manuelle)",
+      "Rendez-vous préalable (2h)",
+      "2 Rendez-vous pédagogiques (3h chacun)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
+      "Frais de gestion de dossier",
+    ],
+  },
+  {
+    id: "aac-automatique",
+    title: "Conduite Accompagnée (AAC) - Automatique",
+    price: "1350 €",
+    priceDetails: "Valide du 01/01/2025 au 31/12/2025",
+    features: [
+      "Formation code (accès salle et en ligne PREPACODE)",
+      "13 leçons de conduite (boîte automatique)",
+      "Rendez-vous préalable (2h)",
+      "2 Rendez-vous pédagogiques (3h chacun)",
+      "Kit pédagogique numérique",
+      "Accompagnement à l’examen pratique (1 présentation)",
+      "Frais de gestion de dossier",
+    ],
+  },
+  {
+    id: "post-permis",
+    title: "Formation Post Permis",
+    price: "350 €",
+    priceDetails: "Tarif valable jusqu’au 31/12/2025 (payable en 1 échéance)",
+    features: [
+      "7 heures de formation collective en salle avec enseignant diplômé",
+      "Attestation de formation",
+    ],
+    objective: "Permet d’obtenir les 12 points du permis plus rapidement (2 ans au lieu de 3 pour la formation traditionnelle, 18 mois au lieu de 2 ans pour la conduite accompagnée).",
     eligibility: [
-      "Avoir entre 6 mois et 1 an de permis",
-      "Aucune infraction ayant entraîné une perte de point",
+      "Avoir obtenu son premier permis de conduire (A1, A2, B1 ou B)",
+      "Avoir entre 6 mois et 1 an de permis (période probatoire)",
+      "Ne pas avoir commis d’infraction ayant entraîné une perte de points sur son permis ou une mesure de restriction du droit de conduire.",
     ],
     documents: [
       "Pièce d'identité (recto-verso)",
       "Permis de conduire (recto-verso)",
       "Justificatif de domicile de moins de 3 mois",
-      "Attestation d’hébergement",
+      "Attestation d’hébergement (si applicable) et pièce d'identité de l'hébergeant",
     ],
-    id: "post-permis"
   }
+];
+
+const supplementaryServices = [
+  { name: "Gestion administrative", price: "90 €" },
+  { name: "Code en salle (accès illimité)", price: "150 €" },
+  { name: "Code en ligne PREPACODE (accès 3 mois)", price: "30 €" },
+  { name: "Extension du code en ligne PREPACODE (par 3 mois)", price: "30 €" },
+  { name: "Redevance examen théorique (ETG)", price: "30 €" },
+  { name: "Livret de code", price: "15 €" },
+  { name: "Évaluation de départ (sur tablette)", price: "50 €" },
+  { name: "Évaluation de départ (en voiture)", price: "60 €" },
+  { name: "Leçon de conduite (50mn)", price: "60 €" },
+  { name: "Rendez-vous préalable AAC/Supervisée (2h)", price: "120 €" },
+  { name: "Rendez-vous pédagogique AAC/Supervisée (3h)", price: "180 €" },
+  { name: "Accompagnement à l’examen pratique (supplémentaire)", price: "60 €" },
 ];
 
 const FormationsTarifsPage: React.FC = () => {
@@ -153,7 +138,7 @@ const FormationsTarifsPage: React.FC = () => {
       <div className="container mx-auto px-4 py-12 md:py-16">
         <section className="mb-12">
           <SectionTitle
-            title="Nos Formules"
+            title="Nos Formules Permis & AAC"
             subtitle="Des packs complets adaptés à chaque besoin et chaque profil d'apprenti conducteur."
             centered
           />
@@ -164,13 +149,17 @@ const FormationsTarifsPage: React.FC = () => {
                   <CardTitle className="text-xl md:text-2xl text-primary">{formation.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4 md:p-6 flex-grow space-y-3">
-                  <p className="text-2xl font-bold text-accent mb-3">{formation.price}</p>
+                  <p className="text-2xl font-bold text-accent mb-2">{formation.price}</p>
                   {formation.priceDetails && <p className="text-xs text-muted-foreground mb-3">{formation.priceDetails}</p>}
                   
-                  <h4 className="font-semibold text-foreground">Inclus :</h4>
-                  <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                    {formation.features.map((feature, index) => <li key={index}>{feature}</li>)}
-                  </ul>
+                  {formation.features && formation.features.length > 0 && (
+                    <>
+                      <h4 className="font-semibold text-foreground flex items-center"><ListChecks className="h-5 w-5 mr-2 text-primary" /> Inclus :</h4>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                        {formation.features.map((feature, index) => <li key={index}>{feature}</li>)}
+                      </ul>
+                    </>
+                  )}
 
                   {formation.objective && (
                     <>
@@ -178,18 +167,18 @@ const FormationsTarifsPage: React.FC = () => {
                       <p className="text-sm text-muted-foreground">{formation.objective}</p>
                     </>
                   )}
-                  {formation.eligibility && (
+                  {formation.eligibility && formation.eligibility.length > 0 && (
                     <>
                       <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
                         {formation.eligibility.map((item, index) => <li key={index}>{item}</li>)}
                       </ul>
                     </>
                   )}
-                  {formation.documents && (
+                  {formation.documents && formation.documents.length > 0 && (
                     <>
                       <h4 className="font-semibold text-foreground mt-3">Pièces à fournir :</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
                         {formation.documents.map((item, index) => <li key={index}>{item}</li>)}
                       </ul>
                     </>
@@ -202,16 +191,22 @@ const FormationsTarifsPage: React.FC = () => {
 
         <section className="mb-12">
           <SectionTitle
-            title="Prestations Supplémentaires"
-            subtitle="Des options à la carte pour compléter votre formation ou répondre à des besoins spécifiques."
+            title="Prestations Supplémentaires & à la Carte"
+            subtitle="Des options pour compléter votre formation ou répondre à des besoins spécifiques."
             centered
           />
           <Card className="shadow-md">
+            <CardHeader>
+              <CardTitle className="text-xl md:text-2xl text-primary">Liste des Prestations</CardTitle>
+            </CardHeader>
             <CardContent className="p-4 md:p-6">
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground md:text-lg">
-                <li>Évaluation initiale : <strong>60 €</strong></li>
-                <li>Accompagnement à l’examen supplémentaire : <strong>60 €</strong></li>
-                <li>Cours de conduite supplémentaire : <strong>60 €</strong></li>
+              <ul className="space-y-2 text-muted-foreground md:text-base columns-1 md:columns-2">
+                {supplementaryServices.map(service => (
+                  <li key={service.name} className="flex justify-between border-b border-dashed pb-1">
+                    <span>{service.name}</span>
+                    <strong className="text-foreground">{service.price}</strong>
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -219,15 +214,22 @@ const FormationsTarifsPage: React.FC = () => {
 
         <section>
           <SectionTitle
-            title="Remarques importantes"
+            title="Remarques Importantes"
             subtitle="Quelques points à connaître avant de vous engager."
             centered
           />
-          <Card className="bg-secondary">
+          <Card className="bg-secondary shadow-md">
+            <CardHeader>
+                <CardTitle className="text-xl md:text-2xl text-primary flex items-center">
+                    <AlertTriangle className="h-6 w-6 mr-2 text-amber-500" /> À Noter
+                </CardTitle>
+            </CardHeader>
             <CardContent className="p-4 md:p-6">
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>L’évaluation de départ n’est pas comprise dans les forfaits.</li>
-                <li>Toute leçon non annulée 48h à l’avance sera facturée (sauf justificatif médical).</li>
+                <li>L’évaluation de départ (obligatoire avant la signature du contrat) n’est pas comprise dans les forfaits (voir tarifs des prestations supplémentaires).</li>
+                <li>Toute leçon de conduite non annulée au minimum 48 heures ouvrables à l’avance sera facturée (sauf présentation d’un justificatif médical).</li>
+                <li>Les tarifs des forfaits sont valables pour la période indiquée (généralement 1 an à compter de la date de signature du contrat, sauf mention contraire). Les prix sont susceptibles d'être ajustés.</li>
+                <li>La redevance examen théorique (30€) est à régler directement au centre d'examen agréé par l'État.</li>
               </ul>
             </CardContent>
           </Card>
@@ -238,3 +240,4 @@ const FormationsTarifsPage: React.FC = () => {
 };
 
 export default FormationsTarifsPage;
+

@@ -54,23 +54,22 @@ export default function ContactPage() {
                   <Phone className="h-6 w-6 mr-3 mt-1 text-primary shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">Téléphone</h4>
-                    <a href="tel:+33000000000" className="text-muted-foreground hover:text-primary transition-colors">00 00 00 00 00 (Placeholder)</a>
+                    <a href="tel:+331 69 56 10 70" className="text-muted-foreground hover:text-primary transition-colors">01 69 56 10 70</a>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Mail className="h-6 w-6 mr-3 mt-1 text-primary shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">E-mail</h4>
-                    <a href="mailto:contact@nbautoecolemairie.fr" className="text-muted-foreground hover:text-primary transition-colors">contact@nbautoecolemairie.fr (Placeholder)</a>
+                    <a href="mailto:nbcontact.conduite@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">nbcontact.conduite@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Clock className="h-6 w-6 mr-3 mt-1 text-primary shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground">Horaires d&apos;ouverture (Accueil & Code)</h4>
-                    <p className="text-muted-foreground">Lundi - Vendredi : 10h-12h & 14h-19h</p>
-                    <p className="text-muted-foreground">Samedi : 10h-13h</p>
-                    <p className="text-xs text-muted-foreground">(Heures de conduite sur RDV)</p>
+                    <p className="text-muted-foreground">Lundi - Vendredi : 09h-12h & 14h-19h</p>
+                    <p className="text-muted-foreground">Samedi : 09h-16h</p>
                   </div>
                 </div>
               </CardContent>

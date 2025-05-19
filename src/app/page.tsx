@@ -13,7 +13,7 @@ export default function HomePage() {
       <HeroSection
         title="NB AUTO ÉCOLE DE LA MAIRIE"
         subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
-        imageUrl="https://placehold.co/1920x1080.png"
+        imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Driving school hero image"
         imageHint="driving road"
         ctaText="Découvrir nos formations"
@@ -21,35 +21,7 @@ export default function HomePage() {
       />
 
       {/* Why Choose Us Section */}
-      <section id="avantages" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Pourquoi Choisir NB AUTO ÉCOLE ?"
-            subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
-            centered
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Certification Qualiopi", description: "Gage de notre engagement pour une formation de qualité, auditée et reconnue.", icon: <Award className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Moniteurs Experts", description: "Une équipe de moniteurs diplômés d'État, patients et pédagogues, dédiés à votre succès.", icon: <Users className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Suivi Personnalisé", description: "Un accompagnement sur mesure, adapté à votre rythme et à vos besoins spécifiques.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Objectif Réussite Élevé", description: "Nos méthodes éprouvées visent à maximiser vos chances de succès aux examens.", icon: <TrendingUp className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
-            ].map((avantage) => (
-              <Card key={avantage.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
-                <CardHeader className="items-center">
-                  {avantage.icon}
-                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{avantage.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Services/Courses Highlight */}
       <section id="formations" className="py-16 md:py-24 bg-secondary">
@@ -83,6 +55,36 @@ export default function HomePage() {
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/formations-tarifs">Voir toutes nos formations et tarifs</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="avantages" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <SectionTitle
+            title="Pourquoi Choisir NB AUTO ÉCOLE ?"
+            subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
+            centered
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Certification Qualiopi", description: "Gage de notre engagement pour une formation de qualité, auditée et reconnue.", icon: <Award className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Moniteurs Experts", description: "Une équipe de moniteurs diplômés d'État, patients et pédagogues, dédiés à votre succès.", icon: <Users className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Suivi Personnalisé", description: "Un accompagnement sur mesure, adapté à votre rythme et à vos besoins spécifiques.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Objectif Réussite Élevé", description: "Nos méthodes éprouvées visent à maximiser vos chances de succès aux examens.", icon: <TrendingUp className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
+            ].map((avantage) => (
+              <Card key={avantage.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
+                <CardHeader className="items-center">
+                  {avantage.icon}
+                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{avantage.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -132,12 +134,12 @@ export default function HomePage() {
                     <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-1 text-xs text-muted-foreground">
-                    <p>Lundi : 10h-12h, 14h-18h</p>
-                    <p>Mardi : 10h-12h, 14h-18h</p>
-                    <p>Mercredi : Fermé</p>
-                    <p>Jeudi : 10h-12h, 14h-18h</p>
-                    <p>Vendredi : 10h-12h, 14h-18h</p>
-                    <p>Samedi : 10h-12h</p>
+                    <p>Lundi : 09h-12h, 14h-19h</p>
+                    <p>Mardi : 09h-12h, 14h-19h</p>
+                    <p>Mercredi : 09h-12h, 14h-19h</p>
+                    <p>Jeudi : 09h-12h, 14h-19h</p>
+                    <p>Vendredi : 09h-12h, 14h-18h</p>
+                    <p>Samedi : 09h-16h</p>
                   </CardContent>
                 </Card>
               </div>

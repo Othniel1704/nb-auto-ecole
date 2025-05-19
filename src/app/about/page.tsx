@@ -35,33 +35,6 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-12 md:mb-16">
-        <SectionTitle title="Notre Équipe" subtitle="Des moniteurs diplômés, expérimentés et dévoués à votre réussite." centered />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { name: "Alice Dubois", role: "Monitrice en Chef", image: "https://placehold.co/300x300.png", hint: "friendly instructor" },
-            { name: "Bruno Martin", role: "Moniteur expérimenté", image: "https://placehold.co/300x300.png", hint: "professional instructor" },
-            { name: "Chloé Lambert", role: "Accueil & Administration", image: "https://placehold.co/300x300.png", hint: "smiling receptionist" },
-          ].map((member) => (
-            <Card key={member.name} className="text-center overflow-hidden hover:shadow-lg transition-shadow">
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={300}
-                height={300}
-                className="w-full h-auto object-cover"
-                data-ai-hint={member.hint}
-              />
-              <CardContent className="p-4">
-                <h4 className="text-xl font-semibold text-foreground">{member.name}</h4>
-                <p className="text-primary">{member.role}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-         <p className="text-center text-muted-foreground mt-4">Notre équipe compte entre 1 et 50 employés dévoués.</p>
-      </section>
-
-      <section className="mb-12 md:mb-16">
         <SectionTitle title="Nos Valeurs & Notre Mission" centered />
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="bg-secondary">

@@ -27,11 +27,11 @@ export function Footer() {
             </li>
             <li className="flex items-center">
               <Phone className="h-5 w-5 mr-2 shrink-0 text-primary" />
-              <a href="tel:+33000000000" className="hover:text-primary transition-colors">00 00 00 00 00 (Placeholder)</a>
+              <a href="tel:+330169561070" className="hover:text-primary transition-colors">01 69 56 10 70 </a>
             </li>
             <li className="flex items-center">
               <Mail className="h-5 w-5 mr-2 shrink-0 text-primary" />
-              <a href="mailto:contact@nbautoecolemairie.fr" className="hover:text-primary transition-colors">contact@nbautoecolemairie.fr (Placeholder)</a>
+              <a href="mailto:contact@nbautoecolemairie.fr" className="hover:text-primary transition-colors">nbcontact.conduite@gmail.com</a>
             </li>
           </ul>
         </div>
