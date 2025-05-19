@@ -11,7 +11,7 @@ const coursesData: Course[] = [
     longDescription: "Notre formation au Permis B vous prépare intégralement à l'examen théorique (code de la route si option choisie) et pratique. Elle inclut des leçons de conduite personnalisées sur boîte manuelle (20h min.) ou automatique (13h min.), l'accès à des outils de révision du code en ligne, et un accompagnement jusqu'à l'examen.",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "car steering wheel",
-    price: "À partir de 860€", // Le moins cher: B Auto sans code
+    price: "À partir de 860€", // Le moins cher: B Auto sans code (860€)
     features: [
       "Formation code en option (en salle et en ligne)",
       "Leçons de conduite sur boîte manuelle ou automatique",
@@ -27,7 +27,7 @@ const coursesData: Course[] = [
     longDescription: "La Conduite Accompagnée permet de commencer l'apprentissage de la conduite dès 15 ans. Après une formation initiale en auto-école (code + conduite en boîte manuelle ou automatique), l'élève conduit avec un accompagnateur pour acquérir une solide expérience avant de passer le permis.",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "teenager driving lesson",
-    price: "À partir de 1350€", // AAC Auto
+    price: "À partir de 1350€", // AAC Auto (1350€)
     features: [
       "Formation code + formation initiale pratique (manuelle ou auto)",
       "Rendez-vous préalable et pédagogiques obligatoires",
@@ -60,7 +60,7 @@ const coursesData: Course[] = [
     longDescription: "Nous proposons des cours de code en salle animés par des moniteurs, ainsi qu'un accès à des plateformes d'entraînement en ligne (PREPACODE) pour réviser à votre rythme. Notre objectif : votre réussite à l'examen du code.",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "traffic signs collage",
-    price: "À partir de 30€", // Code en ligne 3 mois
+    price: "À partir de 30€", // Code en ligne 3 mois (30€)
     features: [
       "Code en salle (optionnel, voir prestations)",
       "Accès plateforme d'entraînement en ligne PREPACODE (optionnel)",
@@ -75,7 +75,7 @@ const coursesData: Course[] = [
     longDescription: "Destinée aux conducteurs novices, cette formation de 7 heures, réalisée entre 6 et 12 mois après l'obtention du permis, permet de réduire la durée de la période probatoire et de renforcer ses compétences.",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "confident driver road",
-    price: "350€",
+    price: "350€", // Prix fixe
     features: [
       "7 heures de formation collective",
       "Sensibilisation aux risques routiers",
@@ -111,4 +111,3 @@ export default function CoursesPage() {
     </>
   );
 }
-

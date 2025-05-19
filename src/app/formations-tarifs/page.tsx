@@ -90,7 +90,7 @@ const formationsData = [
     id: "post-permis",
     title: "Formation Post Permis",
     price: "350 €",
-    priceDetails: "Tarif valable jusqu’au 31/12/2025 (payable en 1 échéance)",
+    priceDetails: "Tarif valable jusqu’au 31/12/2025",
     features: [
       "7 heures de formation collective en salle avec enseignant diplômé",
       "Attestation de formation",
@@ -228,7 +228,7 @@ const FormationsTarifsPage: React.FC = () => {
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                 <li>L’évaluation de départ (obligatoire avant la signature du contrat) n’est pas comprise dans les forfaits (voir tarifs des prestations supplémentaires).</li>
                 <li>Toute leçon de conduite non annulée au minimum 48 heures ouvrables à l’avance sera facturée (sauf présentation d’un justificatif médical).</li>
-                <li>Les tarifs des forfaits sont valables pour la période indiquée (généralement 1 an à compter de la date de signature du contrat, sauf mention contraire). Les prix sont susceptibles d'être ajustés.</li>
+                <li>Les tarifs des forfaits sont valables pour la période indiquée. Les prix sont susceptibles d'être ajustés.</li>
                 <li>La redevance examen théorique (30€) est à régler directement au centre d'examen agréé par l'État.</li>
               </ul>
             </CardContent>
@@ -240,4 +240,3 @@ const FormationsTarifsPage: React.FC = () => {
 };
 
 export default FormationsTarifsPage;
-
