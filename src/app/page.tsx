@@ -68,8 +68,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[ 
               { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
-              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, // Corrected link id
-              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, // Link to general permis B section, BVA packages are there
+              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, 
+              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, 
             ].map((service) => (
               <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
                 <CardHeader className="items-center">
@@ -77,7 +77,7 @@ export default function HomePage() {
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription> {/* Fixed height for description for alignment */}
+                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription> {}
                   <Button asChild variant="link" className="text-primary hover:text-primary/80">
                      <Link href={service.link}>Détails <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
@@ -109,7 +109,7 @@ export default function HomePage() {
                 width={600}
                 height={450}
                 className="rounded-lg shadow-lg"
-                data-ai-hint="friendly driving instructor teaching"
+                data-ai-hint="driving instructor"
               />
             </div>
             <div className="space-y-6">

@@ -55,8 +55,8 @@ const financingOptions = [
 const paymentMethods = [
   { icon: <CreditCardIcon className="h-5 w-5 mr-2 text-primary" />, name: "Carte Bancaire" },
   { icon: <Banknote className="h-5 w-5 mr-2 text-primary" />, name: "Espèces" },
-  { icon: <Landmark className="h-5 w-5 mr-2 text-primary" />, name: "Chèque" }, // Using Landmark for Check as Check icon is for ticks
-  { icon: <Briefcase className="h-5 w-5 mr-2 text-primary" />, name: "Virement Bancaire" }, // Re-using Briefcase, consider a more specific one if available
+  { icon: <Landmark className="h-5 w-5 mr-2 text-primary" />, name: "Chèque" }, 
+  { icon: <Briefcase className="h-5 w-5 mr-2 text-primary" />, name: "Virement Bancaire" }, 
 ];
 
 
@@ -68,7 +68,7 @@ const FormationsTarifsPage: React.FC = () => {
         subtitle="Découvrez toutes nos formules et prestations pour vous accompagner vers la réussite de votre permis."
         imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Tableau de tarifs"
-        imageHint="price list calculator"
+        imageHint="price calculator"
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <section id="main-formations" className="mb-12">
@@ -108,7 +108,7 @@ const FormationsTarifsPage: React.FC = () => {
                             </ul>
                           </>
                         )}
-                         {/* Specific details for Post Permis */}
+                         
                         {course.id === "post-permis" && course.details && (
                           <div className="mt-4">
                             {course.details.prerequisites && (

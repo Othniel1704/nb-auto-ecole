@@ -20,7 +20,7 @@ export default function AboutPage() {
             width={700}
             height={500}
             className="rounded-lg shadow-xl"
-            data-ai-hint="modern driving school"
+            data-ai-hint="driving school"
           />
           <div>
             <h3 className="text-2xl font-semibold text-foreground mb-4">Notre Histoire</h3>
@@ -97,7 +97,7 @@ export default function AboutPage() {
               width={600}
               height={400}
               className="rounded-lg shadow-md"
-              data-ai-hint="modern cars row"
+              data-ai-hint="modern cars"
             />
           </div>
         </div>

@@ -51,7 +51,7 @@ export default function FaqPage() {
         subtitle="Trouvez les réponses aux interrogations les plus fréquentes concernant nos formations et services."
         imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Question marks background"
-        imageHint="question marks pattern"
+        imageHint="question marks"
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <SectionTitle

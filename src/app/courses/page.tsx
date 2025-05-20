@@ -27,8 +27,8 @@ export interface Course {
   packages: PackageItem[];
   details?: CourseDetails;
   ageRequirement?: string;
-  imageUrl: string; // Added for CourseCard
-  imageHint: string; // Added for CourseCard
+  imageUrl: string; 
+  imageHint: string; 
 }
 
 export const coursesData: Course[] = [
@@ -38,7 +38,7 @@ export const coursesData: Course[] = [
     shortDescription: "Formation complète pour l'examen du permis de conduire, disponible en boîte manuelle ou automatique, avec ou sans formation code incluse.",
     categories: ["permis-b"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "car driving lesson",
+    imageHint: "car lesson",
     packages: [
       {
         title: "Boîte Manuelle - 20 leçons sans code",
@@ -51,10 +51,7 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque A ou AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       },
       {
         title: "Boîte Manuelle - 20 leçons avec code",
@@ -69,10 +66,7 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque A ou AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       },
       {
         title: "Boîte Automatique - 13 leçons sans code",
@@ -85,10 +79,7 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque A ou AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       },
       {
         title: "Boîte Automatique - 13 leçons avec code",
@@ -103,14 +94,11 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque A ou AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       },
       {
         title: "Boîte Automatique - 20 leçons avec code",
-        price: 1300, // Corrected based on potential user intent from other BVA 20h
+        price: 1300, 
         duration: "20 leçons de 50min",
         features: [
           "Gestion administrative",
@@ -121,10 +109,7 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque A ou AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       }
     ],
     details: {
@@ -147,7 +132,7 @@ export const coursesData: Course[] = [
     shortDescription: "Apprentissage anticipé de la conduite à partir de 15 ans, permettant de réduire la période probatoire après l'obtention du permis.",
     categories: ["permis-b", "jeunes"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "teenager driving lesson",
+    imageHint: "teenager lesson",
     packages: [
       {
         title: "AAC Boîte Manuelle",
@@ -164,10 +149,7 @@ export const coursesData: Course[] = [
           "Accompagnement à l'examen pratique",
           "1 disque AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
+       
       },
       {
         title: "AAC Boîte Automatique",
@@ -214,7 +196,7 @@ export const coursesData: Course[] = [
     shortDescription: "Stage de sensibilisation permettant de récupérer ses 12 points plus rapidement.",
     categories: ["perfectionnement"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "confident driver road",
+    imageHint: "confident driver",
     packages: [
       {
         title: "Formation Post-Permis",
@@ -250,47 +232,43 @@ export const coursesData: Course[] = [
     ageRequirement: "Permis obtenu depuis 6 à 12 mois"
   },
   {
-    id: "",
-    title: "",
-    shortDescription: "",
-    categories: [""],
+    id: "passerelle-bea-manuelle-2025", 
+    title: "Formule Passerelle - Boîte Automatique vers Manuelle",
+    shortDescription: "Formation de 7 heures pour passer d'un permis B automatique à manuel.",
+    categories: ["Permis B", "Boîte Manuelle", "Passerelle"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "",
+    imageHint: "manual transmission",
     packages: [
       {
-        title: "",
-        price: 0 ,
-        duration: "",
+        title: "Formule Passerelle 2025",
+        price: 385,
+        duration: "7 heures",
         features: [
-          "",
-          "",
-          "",
-          ""
+          "7 leçons de conduite (50 min chacune)",
+          "Gestion administrative",
+          "Demande de fabrication du permis",
+          "1 disque A ou AAC"
         ],
-        notes: [
-          ""
-        ]
-      },
+       
+      }
     ],
     details: {
-      description: "",
-      prerequisites: [
-        "",
-        ""
+      description: "Cette formation de 7h sur boîte manuelle s’adresse aux titulaires du permis B sur boîte automatique (hors raisons médicales) souhaitant obtenir la capacité de conduire une voiture à boîte manuelle.",
+      "prerequisites": [
+        "Être âgé de 18 ans minimum",
+        "Avoir le permis B78 depuis au moins 3 mois"
       ],
       program: [
-        "",
-        "",
-        ""
+        "7 heures de conduite sur boîte manuelle",
+        "Accompagnement administratif",
+        "Demande de fabrication du permis"
       ],
       advantages: [
-        "",
-        ""
+        "Permet de conduire un véhicule à boîte manuelle",
+        "Formation rapide et ciblée"
       ]
     },
-    ageRequirement: ""
-
-
+    ageRequirement: "18+"
   },
   {
     id: "prestations-unites",
@@ -298,12 +276,12 @@ export const coursesData: Course[] = [
     shortDescription: "Services individuels disponibles à la carte selon vos besoins spécifiques.",
     categories: ["permis-b", "code"],
     imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "options list choices",
+    imageHint: "options list",
     packages: [
       {
         title: "Services individuels",
-        price: "Variable", // This indicates the price is per item in features
-        features: [ // These are the actual services with their prices
+        price: "Variable", 
+        features: [ 
           "Gestion administrative - 90€",
           "Code en salle - 150€",
           "Code en ligne (valable 3 mois) - 30€",
@@ -346,14 +324,7 @@ export default function CoursesPage() {
     shortDescription: course.shortDescription,
     imageUrl: course.imageUrl,
     imageHint: course.imageHint,
-    price: getSummaryPrice(course), // Calculated summary price
-    // Map other necessary fields from Course to CourseCardType if needed,
-    // For now, CourseCard mainly uses these + a link.
-    // The detailed 'features' or 'longDescription' are not directly on CourseCard
-    // but can be derived or passed if the CourseCard component evolves.
-    // For simplicity, we keep CourseCard focused on the summary.
-    // Example of passing down some primary features if CourseCard were to display them:
-    // features: course.packages[0]?.features.slice(0,3) || [], 
+    price: getSummaryPrice(course), 
     ageRequirement: course.ageRequirement,
   }));
 
@@ -364,7 +335,7 @@ export default function CoursesPage() {
         subtitle="Des programmes sur mesure pour vous mener vers la réussite et l'autonomie sur la route."
         imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Various road signs"
-        imageHint="road signs collection"
+        imageHint="road signs"
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
         <SectionTitle

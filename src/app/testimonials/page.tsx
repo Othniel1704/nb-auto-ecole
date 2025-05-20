@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
         subtitle="Découvrez ce que nos anciens élèves pensent de leur expérience chez NB AUTO ÉCOLE DE LA MAIRIE."
         imageUrl="https://placehold.co/1920x800.png"
         imageAlt="Happy students with driving licenses"
-        imageHint="happy people group"
+        imageHint="happy people"
       />
     <div className="container mx-auto px-4 py-12 md:py-16">
       <SectionTitle
@@ -73,8 +73,7 @@ export default function TestimonialsPage() {
       <div className="mt-12 text-center">
         <p className="text-lg text-muted-foreground mb-4">Vous aussi, partagez votre expérience !</p>
         <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-          {/* Replace with actual link to Google Reviews or an internal form */}
-          <Link href="https://www.google.com/search?q=NB+AUTO+ECOLE+DE+LA+MAIRIE+Vigneux-sur-Seine" target="_blank" rel="noopener noreferrer">
+          <Link href="https://g.page/r/CWaLWaDy_AiBEBM/review" target="_blank" rel="noopener noreferrer">
             Laisser un avis sur Google
           </Link>
         </Button>
