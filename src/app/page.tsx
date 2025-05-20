@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button} from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock, Car, ShieldCheck, TrendingUp, BookOpen, Smile } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock, Car, ShieldCheck, TrendingUp, BookOpen, Smile, CreditCard, Accessibility, CalendarClock, Presentation, Star } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 
@@ -22,7 +22,41 @@ export default function HomePage() {
 
       {/* Why Choose Us Section */}
      
-
+      <section id="avantages" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <SectionTitle
+            title="Pourquoi Choisir NB AUTO ÉCOLE ?"
+            subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
+            centered
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Certification Qualiopi", description: "Gage de notre engagement pour une formation de qualité, auditée et reconnue.", icon: <Award className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Moniteurs Experts", description: "Une équipe de moniteurs diplômés d'État, patients et pédagogues, dédiés à votre succès.", icon: <Users className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Suivi Personnalisé", description: "Un accompagnement sur mesure, adapté à votre rythme et à vos besoins spécifiques.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Objectif Réussite Élevé", description: "Nos méthodes éprouvées visent à maximiser vos chances de succès aux examens.", icon: <TrendingUp className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Facilités de Paiement", description: "Plusieurs options de paiement pour s'adapter à votre budget.", icon: <CreditCard className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Accès Facile", description: "Parking à proximité et bien desservi par les transports en commun.", icon: <Accessibility className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Salle de Code Moderne", description: "Un espace dédié et équipé des derniers outils pour l'apprentissage du code.", icon: <Presentation className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Label École Qualité", description: "Reconnue pour la qualité de son enseignement et ses services.", icon: <Star className="h-12 w-12 text-primary mb-4" /> },
+            ].map((avantage) => (
+              <Card key={avantage.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
+                <CardHeader className="items-center">
+                  {avantage.icon}
+                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{avantage.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Services/Courses Highlight */}
       <section id="formations" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
@@ -34,8 +68,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[ 
               { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
-              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#aac" },
-              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#b-auto-13h-code" },
+              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, // Corrected link id
+              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, // Link to general permis B section, BVA packages are there
             ].map((service) => (
               <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
                 <CardHeader className="items-center">
@@ -59,36 +93,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="avantages" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Pourquoi Choisir NB AUTO ÉCOLE ?"
-            subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
-            centered
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Certification Qualiopi", description: "Gage de notre engagement pour une formation de qualité, auditée et reconnue.", icon: <Award className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Moniteurs Experts", description: "Une équipe de moniteurs diplômés d'État, patients et pédagogues, dédiés à votre succès.", icon: <Users className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Suivi Personnalisé", description: "Un accompagnement sur mesure, adapté à votre rythme et à vos besoins spécifiques.", icon: <CheckCircle className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Objectif Réussite Élevé", description: "Nos méthodes éprouvées visent à maximiser vos chances de succès aux examens.", icon: <TrendingUp className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
-            ].map((avantage) => (
-              <Card key={avantage.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
-                <CardHeader className="items-center">
-                  {avantage.icon}
-                  <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{avantage.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      
       {/* About Us Snippet */}
       <section id="about-snippet" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -138,7 +142,7 @@ export default function HomePage() {
                     <p>Mardi : 09h-12h, 14h-19h</p>
                     <p>Mercredi : 09h-12h, 14h-19h</p>
                     <p>Jeudi : 09h-12h, 14h-19h</p>
-                    <p>Vendredi : 09h-12h, 14h-18h</p>
+                    <p>Vendredi : 09h-12h, 14h-19h</p>
                     <p>Samedi : 09h-16h</p>
                   </CardContent>
                 </Card>

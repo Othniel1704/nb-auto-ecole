@@ -7,14 +7,157 @@ import { CheckCircle, Info } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
 
 const pricingData = [
-  { category: "Permis B (Boîte Manuelle)", service: "Forfait Classique (Code + 20h conduite)", price: "1250€", features: ["Frais administratifs", "Formation code (salle + en ligne)", "20h de conduite", "1 accompagnement examen pratique"] },
-  { category: "Permis B (Boîte Manuelle)", service: "Leçon de conduite supplémentaire", price: "50€/heure", features: [] },
-  { category: "Permis B (Boîte Automatique)", service: "Forfait Classique (Code + 13h conduite)", price: "1100€", features: ["Frais administratifs", "Formation code (salle + en ligne)", "13h de conduite", "1 accompagnement examen pratique"] },
-  { category: "Permis B (Boîte Automatique)", service: "Leçon de conduite supplémentaire", price: "55€/heure", features: [] },
-  { category: "Conduite Accompagnée (AAC)", service: "Forfait Complet (Dès 15 ans)", price: "1450€", features: ["Formation initiale complète (code + conduite)", "2 RDV pédagogiques"] },
-  { category: "Formation Code", service: "Forfait Code seul (accès salle + en ligne)", price: "350€", features: ["Accès illimité salle de code", "Tests en ligne", "Livre de code"] },
-  { category: "Frais Annexes", service: "Accompagnement examen de conduite (supplémentaire)", price: "50€", features: [] },
-  { category: "Frais Annexes", service: "Frais de dossier / démarches ANTS", price: "80€", features: [] },
+  // Permis B Boîte Manuelle
+  { 
+    category: "Permis B (Boîte Manuelle)", 
+    service: "Forfait 20h sans code", 
+    price: "1180€", 
+    features: [
+      "Gestion administrative",
+      "Livret numérique",
+      "20h de conduite (50min)",
+      "Accompagnement examen pratique",
+      "1 disque A"
+    ] 
+  },
+  { 
+    category: "Permis B (Boîte Manuelle)", 
+    service: "Forfait 20h avec code", 
+    price: "1300€", 
+    features: [
+      "Gestion administrative",
+      "Code en ligne (3 mois)",
+      "Code en salle (3 mois)",
+      "20h de conduite",
+      "Accompagnement examen",
+      "1 disque A"
+    ] 
+  },
+  { 
+    category: "Permis B (Boîte Manuelle)", 
+    service: "Leçon de conduite supplémentaire", 
+    price: "60€/50min", 
+    features: [] 
+  },
+
+  // Permis B Boîte Automatique
+  { 
+    category: "Permis B (Boîte Automatique)", 
+    service: "Forfait 13h sans code", 
+    price: "860€", 
+    features: [
+      "Gestion administrative",
+      "Livret numérique",
+      "13h de conduite",
+      "Accompagnement examen",
+      "1 disque A"
+    ] 
+  },
+  { 
+    category: "Permis B (Boîte Automatique)", 
+    service: "Forfait 13h avec code", 
+    price: "970€", 
+    features: [
+      "Gestion administrative",
+      "Code en ligne (3 mois)",
+      "Code en salle (3 mois)",
+      "13h de conduite",
+      "Accompagnement examen",
+      "1 disque A"
+    ] 
+  },
+  { 
+    category: "Permis B (Boîte Automatique)", 
+    service: "Forfait 20h avec code", 
+    price: "1300€", 
+    features: [
+      "Gestion administrative",
+      "Code en ligne (3 mois)",
+      "Code en salle (3 mois)",
+      "20h de conduite",
+      "Accompagnement examen",
+      "1 disque A"
+    ] 
+  },
+  { 
+    category: "Permis B (Boîte Automatique)", 
+    service: "Leçon de conduite supplémentaire", 
+    price: "60€/50min", 
+    features: [] 
+  },
+
+  // Conduite Accompagnée (AAC)
+  { 
+    category: "Conduite Accompagnée (AAC)", 
+    service: "Boîte Manuelle", 
+    price: "1595€", 
+    features: [
+      "Code complet (3 mois)",
+      "20h de conduite",
+      "1 RV préalable (2h)",
+      "2 RV pédagogiques (3h)",
+      "Accompagnement examen",
+      "1 disque AAC"
+    ] 
+  },
+  { 
+    category: "Conduite Accompagnée (AAC)", 
+    service: "Boîte Automatique", 
+    price: "1350€", 
+    features: [
+      "Code complet (3 mois)",
+      "13h de conduite",
+      "1 RV préalable (2h)",
+      "2 RV pédagogiques (3h)",
+      "Accompagnement examen",
+      "1 disque AAC"
+    ] 
+  },
+
+  // Formation Post-Permis
+  { 
+    category: "Perfectionnement", 
+    service: "Formation Post-Permis", 
+    price: "350€", 
+    features: [
+      "7h de formation en salle",
+      "Attestation officielle",
+      "Gestion de dossier",
+      "Réduction période probatoire"
+    ] 
+  },
+
+  // Prestations à l'unité
+  { 
+    category: "Services Annexes", 
+    service: "Évaluation de départ (voiture)", 
+    price: "60€", 
+    features: [] 
+  },
+  { 
+    category: "Services Annexes", 
+    service: "Gestion administrative", 
+    price: "90€", 
+    features: [] 
+  },
+  { 
+    category: "Services Annexes", 
+    service: "Accompagnement examen pratique", 
+    price: "60€", 
+    features: [] 
+  },
+  { 
+    category: "Services Annexes", 
+    service: "Code en ligne (3 mois)", 
+    price: "30€", 
+    features: [] 
+  },
+  { 
+    category: "Services Annexes", 
+    service: "Rendez-vous pédagogique (3h)", 
+    price: "180€", 
+    features: [] 
+  }
 ];
 
 export default function PricingPage() {

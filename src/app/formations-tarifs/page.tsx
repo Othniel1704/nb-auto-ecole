@@ -2,7 +2,7 @@
 import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ListChecks, AlertTriangle, Info } from "lucide-react";
 import { coursesData, type Course, type PackageItem } from '../courses/page'; // Import from courses/page
 import { Button } from '@/components/ui/button';
@@ -84,7 +84,8 @@ const FormationsTarifsPage: React.FC = () => {
                                 <>
                                 <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
                                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
-                                    {course.details.prerequisites.map((item, idx) => <li key={`prereq-${idx}`}>{item}</li>)}
+                                    { course.details.prerequisites.map((item, idx) => <li key={`prereq-${idx}`}>{item}</li>)}
+          
                                 </ul>
                                 </>
                             )}
@@ -152,12 +153,12 @@ const FormationsTarifsPage: React.FC = () => {
         </section>
 
         <section>
-          <SectionTitle
+          {/* <SectionTitle
             title="Remarques Importantes"
             subtitle="Quelques points à connaître avant de vous engager."
             centered
-          />
-          <Card className="bg-secondary shadow-md">
+          /> */}
+          <Card className="bg-secondary shadow-md mt-12">
             <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary flex items-center">
                     <AlertTriangle className="h-6 w-6 mr-2 text-amber-500" /> À Noter

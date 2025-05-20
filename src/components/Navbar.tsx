@@ -12,12 +12,13 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { HeroSection } from "./ui/hero-section";
 
 const navItems = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "L’auto-école" },
-  { href: "/courses", label: "Formations" },
-  { href: "/pricing", label: "Tarifs" },
+  { href: "/courses", label: "Formation"},
+  { href: "/formations-tarifs", label: "Formations & Tarifs" },
   { href: "/labels", label: "Labels & Qualité" },
   { href: "/testimonials", label: "Avis" },
   { href: "/faq", label: "FAQ" },

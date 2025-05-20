@@ -1,3 +1,4 @@
+
 import { SectionTitle } from "@/components/ui/section-title";
 import {
   Accordion,
@@ -21,6 +22,10 @@ const faqData = [
     answer: "Oui, nous proposons des facilités de paiement. N'hésitez pas à nous contacter ou à passer à l'auto-école pour discuter des modalités et trouver une solution adaptée à votre budget.",
   },
   {
+    question: "Quels sont les moyens de paiement acceptés ?",
+    answer: "Nous acceptons les paiements par Carte Bancaire, Espèces, Chèque et Virement bancaire. Des facilités de paiement sont également possibles, n'hésitez pas à nous consulter pour plus de détails.",
+  },
+  {
     question: "Quel est l'âge minimum pour commencer la conduite accompagnée (AAC) ?",
     answer: "Vous pouvez commencer la formation à la conduite accompagnée (AAC) dès l'âge de 15 ans. Cela vous permet d'acquérir une solide expérience de conduite avant de passer l'examen du permis de conduire à partir de 17 ans.",
   },
@@ -34,7 +39,7 @@ const faqData = [
   },
   {
     question: "Quels sont vos horaires d'ouverture ?",
-    answer: "Nos horaires d'ouverture pour l'accueil et les cours de code sont (à titre indicatif) : Lundi au Vendredi de 10h à 12h et de 14h à 19h, et le Samedi de 10h à 13h. Les heures de conduite sont planifiées individuellement avec votre moniteur, y compris en dehors de ces plages si possible.",
+    answer: "Nos horaires d'ouverture pour l'accueil et les cours de code sont : Lundi au Vendredi de 09h à 12h et de 14h à 19h, et le Samedi de 09h à 16h. Les heures de conduite sont planifiées individuellement avec votre moniteur, y compris en dehors de ces plages si possible.",
   },
 ];
 

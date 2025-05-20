@@ -160,7 +160,7 @@ export const coursesData: Course[] = [
           "Livret numérique",
           "20 leçons de conduite (50min)",
           "1 rendez-vous préalable (2h)",
-          "2 rendez-vous pédagogiques (3h chacun)",
+          "2 rendez-vous pédagogiques (3h)",
           "Accompagnement à l'examen pratique",
           "1 disque AAC"
         ],
@@ -180,14 +180,10 @@ export const coursesData: Course[] = [
           "Livret numérique",
           "13 leçons de conduite (50min)",
           "1 rendez-vous préalable (2h)",
-          "2 rendez-vous pédagogiques (3h chacun)",
+          "2 rendez-vous pédagogiques (3h)",
           "Accompagnement à l'examen pratique",
           "1 disque AAC"
         ],
-        notes: [
-          "Évaluation de départ non comprise",
-          "Leçons non annulées 48h à l'avance seront facturées (sauf justificatif médical)"
-        ]
       }
     ],
     details: {
@@ -222,7 +218,7 @@ export const coursesData: Course[] = [
     packages: [
       {
         title: "Formation Post-Permis",
-        price: 350,
+        price: 385,
         duration: "7 heures de formation",
         features: [
           "Frais administratifs",
@@ -252,6 +248,49 @@ export const coursesData: Course[] = [
       ]
     },
     ageRequirement: "Permis obtenu depuis 6 à 12 mois"
+  },
+  {
+    id: "",
+    title: "",
+    shortDescription: "",
+    categories: [""],
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "",
+    packages: [
+      {
+        title: "",
+        price: 0 ,
+        duration: "",
+        features: [
+          "",
+          "",
+          "",
+          ""
+        ],
+        notes: [
+          ""
+        ]
+      },
+    ],
+    details: {
+      description: "",
+      prerequisites: [
+        "",
+        ""
+      ],
+      program: [
+        "",
+        "",
+        ""
+      ],
+      advantages: [
+        "",
+        ""
+      ]
+    },
+    ageRequirement: ""
+
+
   },
   {
     id: "prestations-unites",
