@@ -18,12 +18,12 @@ const faqData = [
     answer: "La durée de la formation varie selon les individus. Le minimum légal est de 20 heures de conduite pour le permis B en boîte manuelle (13h en boîte automatique). En moyenne, nos élèves effectuent entre 25 et 35 heures. La formation au code peut prendre de quelques semaines à quelques mois selon votre assiduité.",
   },
   {
-    question: "Proposez-vous des facilités de paiement ?",
-    answer: "Oui, nous proposons des facilités de paiement. N'hésitez pas à nous contacter ou à passer à l'auto-école pour discuter des modalités et trouver une solution adaptée à votre budget.",
+    question: "Quels sont les moyens de paiement acceptés ?",
+    answer: "Nous acceptons les paiements par Carte Bancaire, Espèces, Chèque et Virement bancaire. Nous proposons également des facilités de paiement, n'hésitez pas à nous consulter pour plus de détails.",
   },
   {
-    question: "Quels sont les moyens de paiement acceptés ?",
-    answer: "Nous acceptons les paiements par Carte Bancaire, Espèces, Chèque et Virement bancaire. Des facilités de paiement sont également possibles, n'hésitez pas à nous consulter pour plus de détails.",
+    question: "Comment puis-je financer ma formation au permis de conduire ?",
+    answer: "Plusieurs options de financement peuvent être disponibles : \n - Utilisez votre Compte Personnel de Formation (CPF). Notre auto-école est éligible.\n - Renseignez-vous sur les aides de France Travail (Pôle Emploi) si vous êtes demandeur d'emploi.\n - La Région Île-de-France propose des aides pour les jeunes.\n - Nous offrons également des facilités de paiement échelonné. \nN'hésitez pas à consulter notre page 'Formations & Tarifs' pour plus de détails ou à nous contacter directement.",
   },
   {
     question: "Quel est l'âge minimum pour commencer la conduite accompagnée (AAC) ?",
@@ -66,7 +66,7 @@ export default function FaqPage() {
                 <AccordionTrigger className="text-left hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-muted-foreground whitespace-pre-line">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

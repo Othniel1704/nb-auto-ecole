@@ -3,7 +3,7 @@ import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { ListChecks, AlertTriangle, Info } from "lucide-react";
+import { ListChecks, AlertTriangle, Info, Briefcase, Users, University, CreditCardIcon, Landmark, Banknote, CheckCircle } from "lucide-react";
 import { coursesData, type Course, type PackageItem } from '../courses/page'; // Import from courses/page
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -28,6 +28,37 @@ const supplementaryServices = getSupplementaryServices();
 
 // Filter out "prestations-unites" for the main formations display
 const mainFormations = coursesData.filter(course => course.id !== "prestations-unites");
+
+const financingOptions = [
+  {
+    icon: <Briefcase className="h-6 w-6 mr-3 text-primary" />,
+    title: "Compte Personnel de Formation (CPF)",
+    description: "Utilisez vos droits CPF pour financer tout ou partie de votre permis. Nous sommes éligibles et vous accompagnons dans vos démarches.",
+  },
+  {
+    icon: <Users className="h-6 w-6 mr-3 text-primary" />,
+    title: "Aides France Travail (Pôle Emploi)",
+    description: "Des aides peuvent être disponibles pour les demandeurs d'emploi. Renseignez-vous auprès de votre conseiller France Travail.",
+  },
+  {
+    icon: <University className="h-6 w-6 mr-3 text-primary" />,
+    title: "Aide Régionale (Île-de-France)",
+    description: "La Région Île-de-France propose des aides pour les jeunes. Nous pouvons vous aider à vérifier votre éligibilité.",
+  },
+  {
+    icon: <CreditCardIcon className="h-6 w-6 mr-3 text-primary" />,
+    title: "Facilités de Paiement Internes",
+    description: "Nous proposons des solutions de paiement échelonné pour s'adapter à votre budget. Contactez-nous pour en discuter.",
+  },
+];
+
+const paymentMethods = [
+  { icon: <CreditCardIcon className="h-5 w-5 mr-2 text-primary" />, name: "Carte Bancaire" },
+  { icon: <Banknote className="h-5 w-5 mr-2 text-primary" />, name: "Espèces" },
+  { icon: <Landmark className="h-5 w-5 mr-2 text-primary" />, name: "Chèque" }, // Using Landmark for Check as Check icon is for ticks
+  { icon: <Briefcase className="h-5 w-5 mr-2 text-primary" />, name: "Virement Bancaire" }, // Re-using Briefcase, consider a more specific one if available
+];
+
 
 const FormationsTarifsPage: React.FC = () => {
   return (
@@ -152,12 +183,47 @@ const FormationsTarifsPage: React.FC = () => {
           </Card>
         </section>
 
+        <section id="financing-payment" className="mb-12">
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-xl md:text-2xl text-primary">Solutions de Financement</CardTitle>
+                <p className="text-sm text-muted-foreground">Découvrez les aides et facilités pour financer votre permis.</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {financingOptions.map((option, index) => (
+                  <div key={index} className="flex items-start">
+                    {option.icon}
+                    <div>
+                      <h4 className="font-semibold text-foreground">{option.title}</h4>
+                      <p className="text-sm text-muted-foreground">{option.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-xl md:text-2xl text-primary">Nos Moyens de Paiement</CardTitle>
+                 <p className="text-sm text-muted-foreground">Les options disponibles pour régler votre formation.</p>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {paymentMethods.map((method, index) => (
+                    <li key={index} className="flex items-center text-muted-foreground">
+                      {method.icon}
+                      <span>{method.name}</span>
+                    </li>
+                  ))}
+                </ul>
+                 <p className="text-sm text-muted-foreground mt-4">Des facilités de paiement sont possibles, contactez-nous pour en savoir plus.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         <section>
-          {/* <SectionTitle
-            title="Remarques Importantes"
-            subtitle="Quelques points à connaître avant de vous engager."
-            centered
-          /> */}
           <Card className="bg-secondary shadow-md mt-12">
             <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary flex items-center">
@@ -181,5 +247,3 @@ const FormationsTarifsPage: React.FC = () => {
 };
 
 export default FormationsTarifsPage;
-
-    
