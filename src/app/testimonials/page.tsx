@@ -60,8 +60,18 @@ export default function TestimonialsPage() {
         imageHint="happy people"
       />
     <div className="container mx-auto px-4 py-12 md:py-16">
+      
+      <section id="google-reviews" className="mb-12 md:mb-16">
+        <SectionTitle
+          title="Nos Avis Google en Direct"
+          subtitle="Voyez ce que nos clients disent de nous sur Google !"
+          centered
+        />
+        <div className="elfsight-app-8e6d143d-552a-495d-9a7e-714ed522c452" data-elfsight-app-lazy></div>
+      </section>
+
       <SectionTitle
-        title="Avis & Témoignages"
+        title="Avis & Témoignages de nos Élèves"
         subtitle="La satisfaction de nos élèves est notre meilleure publicité. Lisez leurs retours d'expérience."
         centered
       />

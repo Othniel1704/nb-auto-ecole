@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+// import { GeistMono } from 'geist/font/mono'; // Assuming this was intentionally commented or removed
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="fr" className={`${GeistSans.variable} ${/*GeistMono.variable*/''}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
         <Navbar />
         <main className="flex-grow">
@@ -25,6 +25,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
       </body>
     </html>
   );
