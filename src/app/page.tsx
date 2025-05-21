@@ -92,102 +92,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Us Snippet */}
-      <section id="about-snippet" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Bienvenue chez NB AUTO ÉCOLE"
-            subtitle="L'auto-école de la Mairie à Vigneux-sur-Seine, dédiée à votre succès sur la route."
-            centered
-          />
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <Image
-                src="https://placehold.co/600x450.png"
-                alt="NB Auto École de la Mairie - locaux"
-                width={600}
-                height={450}
-                className="rounded-lg shadow-lg"
-                data-ai-hint="driving instructor"
-              />
-            </div>
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground">
-                NB AUTO ÉCOLE DE LA MAIRIE, c'est l'engagement d'une formation de qualité pour votre réussite. Située à Vigneux-sur-Seine, notre auto-école met l'accent sur la transparence, la confiance et un accompagnement personnalisé.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                Nous sommes fiers de notre approche pédagogique et de nos certifications qui attestent de notre sérieux et de notre expertise.
-              </p>
-
-              {/* Contact Info & Highlights Quick View */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <Card className="bg-secondary">
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2 text-sm text-muted-foreground">
-                    <p className="flex items-center"><MapPin className="mr-2 h-4 w-4 opacity-75"/>50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</p>
-                    <p className="flex items-center"><Phone className="mr-2 h-4 w-4 opacity-75"/>01.69.56.10.70</p>
-                    <p className="flex items-center"><Mail className="mr-2 h-4 w-4 opacity-75"/>nbcontact.conduite@gmail.com</p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-secondary">
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-1 text-xs text-muted-foreground">
-                    <p>Lundi : 09h-12h, 14h-19h</p>
-                    <p>Mardi : 09h-12h, 14h-19h</p>
-                    <p>Mercredi : 09h-12h, 14h-19h</p>
-                    <p>Jeudi : 09h-12h, 14h-19h</p>
-                    <p>Vendredi : 09h-12h, 14h-19h</p>
-                    <p>Samedi : 09h-16h</p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="mt-6">
-                <Button asChild size="lg" className="w-full md:w-auto">
-                  <Link href="/about">En savoir plus sur nous</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Snippet */}
-      <section id="testimonials" className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Ce que disent nos élèves"
-            subtitle="Découvrez les témoignages de ceux qui nous ont fait confiance."
-            centered
-          />
-          <div className="grid md:grid-cols-2 gap-8">
-            {[ 
-              { quote: "Une équipe formidable et très professionnelle. J'ai obtenu mon permis rapidement grâce à leurs conseils !", author: "Sophie D." },
-              { quote: "Très bonne auto-école, les moniteurs sont super sympas et professionnels. Je recommande vivement !", author: "Marc L." },
-            ].map((testimonial, index) => (
-              <Card key={index} className="bg-background">
-                <CardContent className="pt-6">
-                  <MessageSquare className="h-8 w-8 text-primary mb-4" />
-                  <p className="text-muted-foreground italic mb-4">&quot;{testimonial.quote}&quot;</p>
-                  <p className="font-semibold text-foreground">- {testimonial.author}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              <Link href="/testimonials">
-                Lire plus d&apos;avis <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action & Contact Section */}
       <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
@@ -198,6 +102,33 @@ export default function HomePage() {
           <Button asChild size="lg" variant="secondary" className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/contact">Nous contacter</Link>
           </Button>
+
+          <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+            <Card className="bg-card text-card-foreground">
+              <CardHeader>
+                <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm text-muted-foreground">
+                <p className="flex items-center"><MapPin className="mr-2 h-4 w-4 opacity-75"/>50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</p>
+                <p className="flex items-center"><Phone className="mr-2 h-4 w-4 opacity-75"/>01.69.56.10.70</p>
+                <p className="flex items-center"><Mail className="mr-2 h-4 w-4 opacity-75"/>nbcontact.conduite@gmail.com</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card text-card-foreground">
+              <CardHeader>
+                <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-1 text-xs text-muted-foreground">
+                <p>Lundi : 09h-12h, 14h-19h</p>
+                <p>Mardi : 09h-12h, 14h-19h</p>
+                <p>Mercredi : 09h-12h, 14h-19h</p>
+                <p>Jeudi : 09h-12h, 14h-19h</p>
+                <p>Vendredi : 09h-12h, 14h-19h</p>
+                <p>Samedi : 09h-16h</p>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Google Map Embed */}
           <div className="mt-12 md:mt-16">
@@ -223,5 +154,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
