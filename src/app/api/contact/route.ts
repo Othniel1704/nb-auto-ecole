@@ -1,5 +1,6 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 // IMPORTANT: This is a placeholder for email sending.
 // You need to implement the actual email sending logic using a library like Nodemailer
@@ -18,24 +19,20 @@ export async function POST(request: NextRequest) {
       console.error('Recipient or sender email not configured in .env');
       return NextResponse.json({ message: 'Server configuration error.' }, { status: 500 });
     }
-
-    // ------------ TODO: Implement actual email sending logic here ------------
-    // Example using Nodemailer (you'll need to install nodemailer: npm install nodemailer)
-    /*
-    const nodemailer = require('nodemailer');
+    
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or your email provider
+      service: 'gmail',
       auth: {
-        user: process.env.SENDER_EMAIL, // Your sender email from .env
-        pass: process.env.EMAIL_APP_PASSWORD, // Your email app password from .env
+        user: senderEmail,
+        pass: process.env.EMAIL_APP_PASSWORD,
       },
     });
-
+    
     const mailOptions = {
-      from: `"${name}" <${senderEmail}>`, // Use senderEmail from .env, or a verified address for your service
-      replyTo: email, // The user's email
-      to: recipientEmail, // Your receiving email from .env
+      from: `"${name}" <${senderEmail}>`,
+      replyTo: email,
+      to: recipientEmail,
       subject: `Nouveau message de contact de ${name} (NB Auto École)`,
       html: `
         <p><strong>Nom:</strong> ${name}</p>
@@ -46,10 +43,9 @@ export async function POST(request: NextRequest) {
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     };
-
+    
     await transporter.sendMail(mailOptions);
-    */
-
+    
     // Simulate email sending for now
     console.log('Simulating email sending...');
     console.log('To:', recipientEmail);
