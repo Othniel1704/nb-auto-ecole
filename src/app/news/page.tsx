@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from "@/lib/utils";
 
 interface NewsArticle {
   id: string;
@@ -66,14 +67,23 @@ export default function NewsPage() {
         imageAlt="Newspaper and road map"
         imageHint="newspaper information"
       />
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
       <SectionTitle
         title="Nos Dernières Actualités"
         subtitle="Informations, conseils, événements : tout ce qu'il faut savoir sur votre auto-école et le monde de la conduite."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {newsData.map((article) => (
-          <Card key={article.id} className="flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+        {newsData.map((article, index) => (
+          <Card 
+            key={article.id} 
+            className={cn(
+              "flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out",
+              "animate-fade-in-up",
+              index % 3 === 0 && "animation-delay-200ms",
+              index % 3 === 1 && "animation-delay-400ms",
+              index % 3 === 2 && "animation-delay-600ms"
+            )}
+          >
             <div className="relative w-full h-48">
              <Image
                 src={article.imageUrl}

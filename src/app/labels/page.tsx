@@ -4,6 +4,7 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Award, ShieldCheck, Star, ThumbsUp } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from "@/lib/utils";
 
 const qualityPoints = [
   {
@@ -94,7 +95,7 @@ export default function LabelsPage() {
         imageAlt="Quality seals and certificates"
         imageHint="certificates awards"
       />
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
       <SectionTitle
         title="Qualité et Confiance : Nos Priorités"
         subtitle="Chez NB AUTO ÉCOLE DE LA MAIRIE, nous sommes fiers de nos engagements pour vous offrir la meilleure formation possible."
@@ -103,7 +104,14 @@ export default function LabelsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {qualityPoints.map((point, index) => (
-          <Card key={index} className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+          <Card 
+            key={index} 
+            className={cn(
+              "hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out",
+              "animate-fade-in-up",
+              index % 2 === 0 ? "animation-delay-200ms" : "animation-delay-400ms"
+            )}
+          >
             <CardHeader className="items-center text-center">
               {point.icon}
               <CardTitle>{point.title}</CardTitle>
@@ -125,7 +133,7 @@ export default function LabelsPage() {
         ))}
       </div>
 
-      <section className="bg-secondary p-8 rounded-lg">
+      <section className="bg-secondary p-8 rounded-lg animate-fade-in-up animation-delay-600ms">
         <SectionTitle
           title="Notre Engagement envers Vous"
           subtitle="Nous nous engageons à respecter les critères de qualité pour une formation réussie."
@@ -140,7 +148,7 @@ export default function LabelsPage() {
         </ul>
       </section>
 
-      <section className="mt-12 md:mt-16">
+      <section className="mt-12 md:mt-16 animate-fade-in-up animation-delay-800ms">
         <SectionTitle
           title="Nos Labels et Partenariats Officiels"
           subtitle="Des reconnaissances qui attestent de notre sérieux et facilitent votre parcours vers le permis."
@@ -148,7 +156,14 @@ export default function LabelsPage() {
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {partnerLogos.map((partner, index) => (
-            <Card key={index} className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out flex flex-col">
+            <Card 
+              key={index} 
+              className={cn(
+                "hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out flex flex-col",
+                "animate-fade-in-up",
+                `animation-delay-${(index % 3) * 150}ms`
+              )}
+            >
               <CardHeader className="items-center text-center">
                 <CardTitle>{partner.name}</CardTitle>
               </CardHeader>
@@ -167,10 +182,7 @@ export default function LabelsPage() {
           ))}
         </div>
       </section>
-
     </div>
     </>
   );
 }
-
-    

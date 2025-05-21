@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from "@/lib/utils";
 
 const faqData = [
   {
@@ -53,16 +54,23 @@ export default function FaqPage() {
         imageAlt="Question marks background"
         imageHint="question marks"
       />
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
         <SectionTitle
           title="Questions Fréquentes"
           subtitle="Nous avons compilé ici les réponses aux questions que vous vous posez le plus souvent."
           centered
         />
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-200ms">
           <Accordion type="single" collapsible className="w-full">
             {faqData.map((item, index) => (
-              <AccordionItem value={`item-${index}`} key={index}>
+              <AccordionItem 
+                value={`item-${index}`} 
+                key={index}
+                className={cn(
+                  "animate-fade-in-up",
+                  `animation-delay-${index * 100}ms` // Stagger accordion items
+                )}
+              >
                 <AccordionTrigger className="text-left hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
@@ -73,7 +81,7 @@ export default function FaqPage() {
             ))}
           </Accordion>
         </div>
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 animate-fade-in-up animation-delay-400ms">
           <p className="text-lg text-muted-foreground">
             Vous ne trouvez pas la réponse à votre question ?
           </p>

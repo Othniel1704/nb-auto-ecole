@@ -2,6 +2,7 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { CourseCard, type Course as CourseCardType } from "@/components/CourseCard"; // Renamed to avoid conflict
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from "@/lib/utils";
 
 // Define the detailed course data structure based on user input
 export interface PackageItem {
@@ -337,20 +338,27 @@ export default function CoursesPage() {
         imageAlt="Various road signs"
         imageHint="road signs"
       />
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
         <SectionTitle
           title="Catalogue des Formations"
           subtitle="Choisissez la formule qui correspond le mieux à vos besoins et à vos objectifs."
           centered
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coursesToDisplay.map((course) => (
-            <CourseCard key={course.id} course={course} />
+          {coursesToDisplay.map((course, index) => (
+            <CourseCard 
+              key={course.id} 
+              course={course}
+              className={cn(
+                "animate-fade-in-up",
+                index % 3 === 0 && "animation-delay-200ms", // Delay for first item in a row
+                index % 3 === 1 && "animation-delay-400ms", // Delay for second item
+                index % 3 === 2 && "animation-delay-600ms"  // Delay for third item
+              )}
+            />
           ))}
         </div>
       </div>
     </>
   );
 }
-
-    

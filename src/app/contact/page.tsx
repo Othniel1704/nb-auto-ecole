@@ -4,6 +4,7 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from '@/lib/utils';
 
 function ContactFormWrapper() {
   return <ContactForm />;
@@ -23,14 +24,14 @@ export default function ContactPage() {
         imageAlt="Contact icons background"
         imageHint="communication icons"
       />
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
       <SectionTitle
         title="Prendre Contact avec NB AUTO ÉCOLE DE LA MAIRIE"
         subtitle="Remplissez le formulaire ci-dessous ou utilisez nos coordonnées directes. Nous vous répondrons dans les meilleurs délais."
       />
 
       <div className="grid md:grid-cols-2 gap-12">
-        <div>
+        <div className="animate-fade-in-up animation-delay-200ms">
           <h3 className="text-2xl font-semibold text-foreground mb-6">Envoyez-nous un message</h3>
           {/* Wrap ContactForm in Suspense for searchParams usage */}
           <Suspense fallback={<div>Chargement du formulaire...</div>}>
@@ -38,7 +39,7 @@ export default function ContactPage() {
           </Suspense>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 animate-fade-in-up animation-delay-400ms">
           <div>
             <h3 className="text-2xl font-semibold text-foreground mb-4">Nos Coordonnées</h3>
             <Card className="bg-secondary">
@@ -76,7 +77,7 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          <div>
+          <div className="animate-fade-in-up animation-delay-600ms">
             <h3 className="text-2xl font-semibold text-foreground mb-4">Notre Localisation</h3>
             <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <iframe

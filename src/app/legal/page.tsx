@@ -1,6 +1,7 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HeroSection } from "@/components/ui/hero-section";
+import { cn } from "@/lib/utils";
 
 export default function LegalPage() {
   return (
@@ -12,7 +13,7 @@ export default function LegalPage() {
         imageAlt="Legal documents gavel"
         imageHint="legal documents"
       />
-    <div className="container mx-auto px-4 py-12 md:py-16">
+    <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
       <SectionTitle
         title="Mentions Légales & Politique RGPD"
         subtitle="Informations relatives à l'éditeur du site et à la protection de vos données personnelles."
@@ -20,7 +21,7 @@ export default function LegalPage() {
       />
 
       <div className="space-y-12">
-        <Card className="shadow-md">
+        <Card className="shadow-md animate-fade-in-up animation-delay-200ms">
           <CardHeader>
             <CardTitle className="text-2xl">Mentions Légales</CardTitle>
           </CardHeader>
@@ -54,7 +55,7 @@ export default function LegalPage() {
           </CardContent>
         </Card>
 
-        <Card className="shadow-md">
+        <Card className="shadow-md animate-fade-in-up animation-delay-400ms">
           <CardHeader>
             <CardTitle className="text-2xl">Politique de Confidentialité (RGPD)</CardTitle>
           </CardHeader>

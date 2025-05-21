@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { ArrowRight, CheckCircle, Users, Award, MessageSquare, MapPin, Phone, Mail, Clock, Car, ShieldCheck, TrendingUp, BookOpen, Smile, CreditCard, Accessibility, CalendarClock, Presentation, Star } from "lucide-react";
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   return (
@@ -20,9 +21,9 @@ export default function HomePage() {
         ctaLink="#formations"
       />
 
-      {/* Services/Courses Highlight - Moved Up */}
+      {/* Services/Courses Highlight */}
       <section id="formations" className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
             title="Nos Formations Phares"
             subtitle="Des programmes adaptés à vos besoins pour apprendre à conduire en toute confiance."
@@ -33,8 +34,17 @@ export default function HomePage() {
               { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
               { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, 
               { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, 
-            ].map((service) => (
-              <Card key={service.title} className="text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group">
+            ].map((service, index) => (
+              <Card 
+                key={service.title} 
+                className={cn(
+                  "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
+                  "animate-fade-in-up",
+                  index === 0 && "animation-delay-200ms",
+                  index === 1 && "animation-delay-400ms",
+                  index === 2 && "animation-delay-600ms"
+                )}
+              >
                 <CardHeader className="items-center">
                   {service.icon}
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
@@ -48,7 +58,7 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 animate-fade-in-up animation-delay-800ms">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/formations-tarifs">Voir toutes nos formations et tarifs</Link>
             </Button>
@@ -58,7 +68,7 @@ export default function HomePage() {
       
       {/* Why Choose Us Section */}
       <section id="avantages" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
             title="Pourquoi Choisir NB AUTO ÉCOLE ?"
             subtitle="Nous nous engageons à vous offrir une expérience d'apprentissage de qualité supérieure."
@@ -77,8 +87,15 @@ export default function HomePage() {
               { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> }, 
               { title: "Salle de Code Moderne", description: "Un espace dédié et équipé des derniers outils pour l'apprentissage du code.", icon: <Presentation className="h-12 w-12 text-primary mb-4" /> },
               { title: "Label École Qualité", description: "Reconnue pour la qualité de son enseignement et ses services.", icon: <Star className="h-12 w-12 text-primary mb-4" /> },
-            ].map((avantage) => (
-              <Card key={avantage.title} className="text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group">
+            ].map((avantage, index) => (
+              <Card 
+                key={avantage.title} 
+                className={cn(
+                  "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
+                  "animate-fade-in-up",
+                  `animation-delay-${(index % 3) * 200}ms` // Stagger by column
+                )}
+              >
                 <CardHeader className="items-center">
                   {avantage.icon}
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
@@ -94,7 +111,7 @@ export default function HomePage() {
 
       {/* Call to Action & Contact Section */}
       <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à prendre la route ?</h2>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
             Contactez-nous dès aujourd&apos;hui pour discuter de vos besoins et commencer votre formation à la conduite.
@@ -104,7 +121,7 @@ export default function HomePage() {
           </Button>
 
           <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out">
+            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up animation-delay-200ms">
               <CardHeader>
                 <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
               </CardHeader>
@@ -115,7 +132,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out">
+            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up animation-delay-400ms">
               <CardHeader>
                 <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
               </CardHeader>
@@ -131,7 +148,7 @@ export default function HomePage() {
           </div>
 
           {/* Google Map Embed */}
-          <div className="mt-12 md:mt-16">
+          <div className="mt-12 md:mt-16 animate-fade-in-up animation-delay-600ms">
             <h3 className="text-2xl md:text-3xl font-bold mb-6">Où nous trouver ?</h3>
             <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
               <iframe

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Target, Building, Heart } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function AboutPage() {
   return (
@@ -13,7 +14,7 @@ export default function AboutPage() {
         centered
       />
 
-      <section className="mb-12 md:mb-16">
+      <section className="mb-12 md:mb-16 animate-fade-in-up animation-delay-200ms">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <Image
             src="https://placehold.co/700x500.png"
@@ -35,7 +36,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mb-12 md:mb-16">
+      <section className="mb-12 md:mb-16 animate-fade-in-up animation-delay-400ms">
         <SectionTitle title="Nos Valeurs & Notre Mission" centered />
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="bg-secondary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
@@ -66,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section>
+      <section className="animate-fade-in-up animation-delay-600ms">
         <SectionTitle title="Nos Locaux & Véhicules" subtitle="Un environnement d'apprentissage moderne et confortable." centered />
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>

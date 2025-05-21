@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, ShieldCheck, Users, BookOpen } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const EngagementsPage: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const EngagementsPage: React.FC = () => {
         imageAlt="Poignée de main accord"
         imageHint="handshake agreement"
       />
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
         <SectionTitle
           title="Notre Promesse : Une Formation de Qualité"
           subtitle="Nous nous engageons à vous offrir un environnement d'apprentissage optimal et un accompagnement personnalisé."
@@ -22,7 +23,7 @@ const EngagementsPage: React.FC = () => {
         />
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-200ms">
             <CardHeader>
               <CardTitle className="flex items-center text-primary">
                 <CheckCircle className="h-6 w-6 mr-2" /> Qualité et Transparence
@@ -47,7 +48,7 @@ const EngagementsPage: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-400ms">
             <CardHeader>
               <CardTitle className="flex items-center text-primary">
                 <ShieldCheck className="h-6 w-6 mr-2" /> Votre Satisfaction et Sécurité
@@ -65,7 +66,7 @@ const EngagementsPage: React.FC = () => {
           </Card>
         </div>
 
-        <section className="bg-secondary p-6 md:p-8 rounded-lg shadow-md">
+        <section className="bg-secondary p-6 md:p-8 rounded-lg shadow-md animate-fade-in-up animation-delay-600ms">
            <SectionTitle
             title="Nos Partenaires Pédagogiques"
             subtitle="Nous collaborons avec des experts reconnus pour vous offrir les meilleurs outils d'apprentissage."

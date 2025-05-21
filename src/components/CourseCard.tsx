@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // This interface is for the props the CourseCard component itself receives.
 // It's a summary/view model of the more detailed Course data.
@@ -21,11 +22,15 @@ export interface Course {
 
 interface CourseCardProps {
   course: Course;
+  className?: string; // Added className prop for animation
 }
 
-export function CourseCard({ course }: CourseCardProps) {
+export function CourseCard({ course, className }: CourseCardProps) {
   return (
-    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+    <Card className={cn(
+      "flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out",
+      className // Apply className for animations
+    )}>
       <div className="relative w-full h-48 md:h-56">
         <Image
           src={course.imageUrl}
@@ -68,5 +73,3 @@ export function CourseCard({ course }: CourseCardProps) {
     </Card>
   );
 }
-
-    

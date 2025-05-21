@@ -7,6 +7,7 @@ import { ListChecks, AlertTriangle, Info, Briefcase, Users, University, CreditCa
 import { coursesData, type Course, type PackageItem } from '../courses/page'; // Import from courses/page
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 // Function to extract supplementary services
 const getSupplementaryServices = () => {
@@ -71,20 +72,27 @@ const FormationsTarifsPage: React.FC = () => {
         imageHint="price calculator"
       />
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <section id="main-formations" className="mb-12">
+        <section id="main-formations" className="mb-12 animate-fade-in-up">
           <SectionTitle
             title="Nos Formules Permis & AAC"
             subtitle="Des packs complets adaptés à chaque besoin et chaque profil d'apprenti conducteur."
             centered
           />
           <div className="space-y-10">
-            {mainFormations.map((course: Course) => (
-              <div key={course.id} id={course.id} className="scroll-mt-20">
+            {mainFormations.map((course: Course, courseIndex: number) => (
+              <div key={course.id} id={course.id} className={cn("scroll-mt-20 animate-fade-in-up", `animation-delay-${courseIndex * 200}ms`)}>
                 <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-6 text-center">{course.title}</h3>
                 {course.details?.description && <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">{course.details.description}</p>}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {course.packages.map((pkg: PackageItem, index: number) => (
-                    <Card key={`${course.id}-${index}`} className="flex flex-col h-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                    <Card 
+                      key={`${course.id}-${index}`} 
+                      className={cn(
+                        "flex flex-col h-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out",
+                        "animate-fade-in-up",
+                        `animation-delay-${(index + 1) * 100}ms` // Stagger package cards
+                      )}
+                    >
                       <CardHeader className="p-4 md:p-6 bg-muted/50">
                         <CardTitle className="text-xl md:text-2xl text-foreground">{pkg.title}</CardTitle>
                       </CardHeader>
@@ -160,7 +168,7 @@ const FormationsTarifsPage: React.FC = () => {
           </div>
         </section>
 
-        <section id="supplementary-services" className="mb-12">
+        <section id="supplementary-services" className="mb-12 animate-fade-in-up animation-delay-400ms">
           <SectionTitle
             title="Prestations Supplémentaires & à la Carte"
             subtitle="Des options pour compléter votre formation ou répondre à des besoins spécifiques."
@@ -183,9 +191,9 @@ const FormationsTarifsPage: React.FC = () => {
           </Card>
         </section>
 
-        <section id="financing-payment" className="mb-12">
+        <section id="financing-payment" className="mb-12 animate-fade-in-up animation-delay-600ms">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary">Solutions de Financement</CardTitle>
                 <p className="text-sm text-muted-foreground">Découvrez les aides et facilités pour financer votre permis.</p>
@@ -203,7 +211,7 @@ const FormationsTarifsPage: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out animate-fade-in-up animation-delay-200ms">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary">Nos Moyens de Paiement</CardTitle>
                  <p className="text-sm text-muted-foreground">Les options disponibles pour régler votre formation.</p>
@@ -223,7 +231,7 @@ const FormationsTarifsPage: React.FC = () => {
           </div>
         </section>
 
-        <section>
+        <section className="animate-fade-in-up animation-delay-800ms">
           <Card className="bg-secondary shadow-md mt-12 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary flex items-center">
