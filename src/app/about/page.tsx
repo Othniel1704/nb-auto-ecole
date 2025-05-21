@@ -76,8 +76,7 @@ export default function AboutPage() {
               Notre auto-école, située au <strong> 50 B Rue Pierre Marin, 91270 Vigneux-sur-Seine</strong>, vous accueille dans des locaux modernes et climatisés. Nous disposons de salles de code équipées des derniers outils pédagogiques pour un apprentissage interactif et efficace.
             </p>
             <Image
-              src="
-              /images/IMG_3339.jpeg"
+              src="/images/IMG_3339.jpeg"
               alt="Salle de code NB Auto École"
               width={600}
               height={400}

@@ -65,16 +65,37 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log("Form submitted:", values);
-    toast({
-      title: "Message envoyé !",
-      description: "Nous avons bien reçu votre message et reviendrons vers vous rapidement.",
-      variant: "default", 
-    });
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+
+      toast({
+        title: "Message envoyé !",
+        description: result.message || "Nous avons bien reçu votre message et reviendrons vers vous rapidement.",
+        variant: "default",
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      toast({
+        title: "Erreur d'envoi",
+        description: (error as Error).message || "Une erreur s'est produite lors de l'envoi de votre message.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
