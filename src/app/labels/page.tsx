@@ -10,28 +10,28 @@ const qualityPoints = [
     icon: <Award className="h-10 w-10 text-primary mb-4" />,
     title: "Agrément Préfectoral",
     description: "NB AUTO ÉCOLE DE LA MAIRIE est une auto-école agréée par la Préfecture, garantissant le respect des normes d'enseignement et de sécurité.",
- image: "/images/logo_ecole_de_conduite_qualité.png",
+    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder, replace with actual image path
     imageHint: "official stamp"
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary mb-4" />,
     title: "Moniteurs Diplômés d'État",
     description: "Notre équipe est composée exclusivement de moniteurs titulaires du BEPECASER ou du Titre Professionnel ECSR, assurant une pédagogie de qualité.",
- image: "/images/logo_ecole_de_conduite_qualité.png",
+    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
     imageHint: "certificate diploma"
   },
   {
     icon: <Star className="h-10 w-10 text-primary mb-4" />,
     title: "Engagement Qualité",
     description: "Nous nous engageons à fournir une formation transparente, un suivi personnalisé et des conditions d'apprentissage optimales pour tous nos élèves.",
- image: "/images/logo_ecole_de_conduite_qualité.png",
+    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
     imageHint: "quality seal"
   },
   {
     icon: <ThumbsUp className="h-10 w-10 text-primary mb-4" />,
     title: "Taux de Réussite Élevé (Objectif)",
     description: "Nous mettons tout en œuvre pour maximiser vos chances de réussite aux examens du code et de la conduite. Nos méthodes visent un taux de réussite supérieur à la moyenne nationale.",
- image: "/images/logo_ecole_de_conduite_qualité.png",
+    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
     imageHint: "graph success"
   }
 ];
@@ -49,37 +49,37 @@ const partnerLogos: PartnerLabel[] = [
   {
     name: "Certifié Qualiopi",
     description: "Notre organisme est officiellement certifié Qualiopi. Cette certification atteste de la qualité de nos processus de formation et de notre engagement envers l'amélioration continue.",
- imageUrl: "/images/LogoQualiopi.png",
+    imageUrl: "/images/LogoQualiopi.png",
     imageHint: "Qualiopi logo",
   },
   {
     name: "École de Conduite Qualité",
     description: "Gage de notre engagement pour une formation de qualité, reconnue par les professionnels du secteur.",
- imageUrl: "/images/logo_ecole_de_conduite_qualité.png",
+    imageUrl: "/images/logo_ecole_de_conduite_qualité.png",
     imageHint: "quality school",
   },
   {
     name: "Partenaire Région Île-de-France",
     description: "Nous vous accompagnons dans les démarches pour les aides régionales à la formation au permis de conduire.",
- imageUrl: "/images/logo.jpg", // Assuming a generic logo for this example, replace if you have a specific one
+    imageUrl: "/images/logo.jpg", 
     imageHint: "iledefrance logo",
   },
   {
     name: "Référencé France Travail",
     description: "Nos formations peuvent être éligibles à des financements via France Travail (anciennement Pôle Emploi).",
- imageUrl: "/images/logo-france-travail.png",
+    imageUrl: "/images/logo-france-travail.png",
     imageHint: "francetravail logo",
   },
   {
     name: "Éligible Mon Compte CPF",
     description: "Financez votre permis de conduire grâce à votre Compte Personnel de Formation (CPF).",
- imageUrl: "/images/Logo-Mon-Compte-Formation-Appli-CPF.jpg", // Assuming a generic logo for this example, replace if you have a specific one
+    imageUrl: "/images/Logo-Mon-Compte-Formation-Appli-CPF.jpg", 
     imageHint: "cpf logo",
   },
   {
     name: "Partenaire Code Rousseau",
     description: "Nous utilisons les outils pédagogiques de Code Rousseau, leader de la formation au code de la route.",
- imageUrl: "/images/coderousseau.jpg", // Assuming a generic logo for this example, replace if you have a specific one
+    imageUrl: "/images/coderousseau.jpg", 
     imageHint: "rousseau logo",
   },
 ];
@@ -103,7 +103,7 @@ export default function LabelsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {qualityPoints.map((point, index) => (
-          <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+          <Card key={index} className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader className="items-center text-center">
               {point.icon}
               <CardTitle>{point.title}</CardTitle>
@@ -148,7 +148,7 @@ export default function LabelsPage() {
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {partnerLogos.map((partner, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <Card key={index} className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out flex flex-col">
               <CardHeader className="items-center text-center">
                 <CardTitle>{partner.name}</CardTitle>
               </CardHeader>

@@ -84,7 +84,7 @@ const FormationsTarifsPage: React.FC = () => {
                 {course.details?.description && <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">{course.details.description}</p>}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {course.packages.map((pkg: PackageItem, index: number) => (
-                    <Card key={`${course.id}-${index}`} className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <Card key={`${course.id}-${index}`} className="flex flex-col h-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
                       <CardHeader className="p-4 md:p-6 bg-muted/50">
                         <CardTitle className="text-xl md:text-2xl text-foreground">{pkg.title}</CardTitle>
                       </CardHeader>
@@ -166,7 +166,7 @@ const FormationsTarifsPage: React.FC = () => {
             subtitle="Des options pour compléter votre formation ou répondre à des besoins spécifiques."
             centered
           />
-          <Card className="shadow-md">
+          <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="text-xl md:text-2xl text-primary">Liste des Prestations</CardTitle>
             </CardHeader>
@@ -185,7 +185,7 @@ const FormationsTarifsPage: React.FC = () => {
 
         <section id="financing-payment" className="mb-12">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="shadow-md">
+            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary">Solutions de Financement</CardTitle>
                 <p className="text-sm text-muted-foreground">Découvrez les aides et facilités pour financer votre permis.</p>
@@ -203,7 +203,7 @@ const FormationsTarifsPage: React.FC = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-md">
+            <Card className="shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
               <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary">Nos Moyens de Paiement</CardTitle>
                  <p className="text-sm text-muted-foreground">Les options disponibles pour régler votre formation.</p>
@@ -224,7 +224,7 @@ const FormationsTarifsPage: React.FC = () => {
         </section>
 
         <section>
-          <Card className="bg-secondary shadow-md mt-12">
+          <Card className="bg-secondary shadow-md mt-12 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
                 <CardTitle className="text-xl md:text-2xl text-primary flex items-center">
                     <AlertTriangle className="h-6 w-6 mr-2 text-amber-500" /> À Noter

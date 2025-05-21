@@ -34,7 +34,7 @@ export default function HomePage() {
               { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, 
               { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, 
             ].map((service) => (
-              <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
+              <Card key={service.title} className="text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group">
                 <CardHeader className="items-center">
                   {service.icon}
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
@@ -73,12 +73,12 @@ export default function HomePage() {
               { title: "Véhicules Modernes", description: "Apprenez à conduire sur des véhicules récents, sécurisés et bien entretenus.", icon: <Car className="h-12 w-12 text-primary mb-4" /> },
               { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
               { title: "Facilités de Paiement", description: "Plusieurs options de paiement pour s'adapter à votre budget.", icon: <CreditCard className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Accès Facile", description: "Parking à proximité et bien desservi par les transports en commun.", icon: <Accessibility className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Accès Facile", description: "Parking à proximité et bien desservi par les transports en commun.",  icon: <MapPin className="h-12 w-12 text-primary mb-4" /> },
+              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> }, 
               { title: "Salle de Code Moderne", description: "Un espace dédié et équipé des derniers outils pour l'apprentissage du code.", icon: <Presentation className="h-12 w-12 text-primary mb-4" /> },
               { title: "Label École Qualité", description: "Reconnue pour la qualité de son enseignement et ses services.", icon: <Star className="h-12 w-12 text-primary mb-4" /> },
             ].map((avantage) => (
-              <Card key={avantage.title} className="text-center hover:shadow-xl transition-shadow duration-300 group">
+              <Card key={avantage.title} className="text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group">
                 <CardHeader className="items-center">
                   {avantage.icon}
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{avantage.title}</CardTitle>
@@ -104,7 +104,7 @@ export default function HomePage() {
           </Button>
 
           <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-            <Card className="bg-card text-card-foreground">
+            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out">
               <CardHeader>
                 <CardTitle className="flex items-center text-lg md:text-xl"><MapPin className="mr-2 h-5 w-5 text-primary"/>Coordonnées</CardTitle>
               </CardHeader>
@@ -115,7 +115,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card text-card-foreground">
+            <Card className="bg-card text-card-foreground hover:-translate-y-1 transition-all duration-300 ease-in-out">
               <CardHeader>
                 <CardTitle className="flex items-center text-lg md:text-xl"><Clock className="mr-2 h-5 w-5 text-primary"/>Horaires Bureau</CardTitle>
               </CardHeader>

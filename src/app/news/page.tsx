@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/section-title";
@@ -72,7 +73,7 @@ export default function NewsPage() {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {newsData.map((article) => (
-          <Card key={article.id} className="flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+          <Card key={article.id} className="flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <div className="relative w-full h-48">
              <Image
                 src={article.imageUrl}

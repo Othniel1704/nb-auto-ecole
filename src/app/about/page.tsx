@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,7 +38,7 @@ export default function AboutPage() {
       <section className="mb-12 md:mb-16">
         <SectionTitle title="Nos Valeurs & Notre Mission" centered />
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="bg-secondary">
+          <Card className="bg-secondary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="flex items-center text-foreground">
                 <Heart className="h-6 w-6 mr-2 text-primary" /> Nos Valeurs
@@ -50,7 +51,7 @@ export default function AboutPage() {
               <p><strong>Transparence :</strong> Informations claires sur nos formations et tarifs.</p>
             </CardContent>
           </Card>
-          <Card className="bg-secondary">
+          <Card className="bg-secondary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="flex items-center text-foreground">
                 <Target className="h-6 w-6 mr-2 text-primary" /> Notre Mission

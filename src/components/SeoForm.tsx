@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { generateSeoContentAction, type SeoFormState } from "@/app/seo-tools/actions";
 import { useEffect } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";import { useFormStatus } from "react-dom";
 import { Loader2 } from "lucide-react";
 
 const initialState: SeoFormState = {
@@ -34,7 +34,7 @@ function SubmitButton() {
 }
 
 export function SeoForm() {
-  const [state, formAction] = useFormState(generateSeoContentAction, initialState);
+  const [state, formAction] = useActionState(generateSeoContentAction, initialState);
   const { toast } = useToast();
 
   useEffect(() => {

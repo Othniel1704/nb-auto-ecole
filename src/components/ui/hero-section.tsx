@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { ReactNode } from 'react';
@@ -27,15 +28,16 @@ export function HeroSection({
   children,
 }: HeroSectionProps) {
   return (
-    <section className="relative bg-secondary text-secondary-foreground py-16 md:py-24 lg:py-32">
+    <section className="relative bg-secondary text-secondary-foreground py-16 md:py-24 lg:py-32 overflow-hidden">
       {imageUrl && (
         <Image
           src={imageUrl}
           alt={imageAlt}
           layout="fill"
           objectFit="cover"
-          className="opacity-85"
+          className="opacity-85 hero-bg-image-animate"
           data-ai-hint={imageHint}
+          priority // Consider adding priority for LCP images
         />
       )}
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -72,7 +74,22 @@ export function HeroSection({
           animation: fadeInUp 0.5s ease-out forwards;
           opacity: 0; /* Start hidden */
         }
+        @keyframes subtleZoomPan {
+          0% {
+            transform: scale(1.05) translate(0%, 0%);
+          }
+          50% {
+            transform: scale(1.1) translate(-1%, 1%);
+          }
+          100% {
+            transform: scale(1.05) translate(1%, -1%);
+          }
+        }
+        .hero-bg-image-animate {
+          animation: subtleZoomPan 30s infinite alternate ease-in-out;
+        }
       `}</style>
     </section>
   );
 }
+

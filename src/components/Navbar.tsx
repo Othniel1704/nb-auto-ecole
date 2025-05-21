@@ -1,3 +1,4 @@
+
 // Suggested code may be subject to a license. Learn more: ~LicenseLog:2259079398.
 // Suggested code may be subject to a license. Learn more: ~LicenseLog:1066292624.
 // Suggested code may be subject to a license. Learn more: ~LicenseLog:2231036138.
@@ -18,13 +19,13 @@ const navItems = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "L’auto-école" },
   { href: "/courses", label: "Formation"},
-  { href: "/formations-tarifs", label: "Formations & Tarifs" },
-  { href: "/labels", label: "Labels & Qualité" },
+  { href: "/formations-tarifs", label: "Formules" },
+  { href: "/labels", label: "Labels " },
   { href: "/testimonials", label: "Avis" },
   { href: "/faq", label: "FAQ" },
   { href: "/news", label: "Actualités" },
   { href: "/contact", label: "Contact" },
-  // { href: "/seo-tools", label: "SEO Tools (Admin)" }, // Example for internal tool
+  // { href: "/seo-tools", label: "SEO Tools (Admin)" }, 
 ];
 
 export function Navbar() {
@@ -58,7 +59,7 @@ export function Navbar() {
             "text-sm font-medium transition-colors hover:text-primary",
             pathname === item.href
               ? "text-primary"
-              : "text-muted-foreground",
+              : "text-muted-foreground hover:underline underline-offset-4",
             mobile && "text-lg"
           )}
         >
@@ -93,7 +94,7 @@ export function Navbar() {
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
  <img src="/images/logo.png" alt="logo" className="h-6 w-6" />
-                      <span className="text-lg font-bold text-primary">DriveReady</span>
+                      <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                     <X className="h-6 w-6" />

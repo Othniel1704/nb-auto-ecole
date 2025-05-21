@@ -25,7 +25,7 @@ interface CourseCardProps {
 
 export function CourseCard({ course }: CourseCardProps) {
   return (
-    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
       <div className="relative w-full h-48 md:h-56">
         <Image
           src={course.imageUrl}
