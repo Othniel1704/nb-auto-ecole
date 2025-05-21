@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
-// import { GeistMono } from 'geist/font/mono'; // Assuming this was intentionally commented or removed
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: 'DriveReady - NB AUTO ÉCOLE DE LA MAIRIE',
@@ -17,15 +17,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${GeistSans.variable} ${/*GeistMono.variable*/''}`}>
+    <html lang="fr" className={`${GeistSans.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <Toaster />
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <Toaster />
+          <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -116,7 +116,7 @@ export default function HomePage() {
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
             Contactez-nous dès aujourd&apos;hui pour discuter de vos besoins et commencer votre formation à la conduite.
           </p>
-          <Button asChild size="lg" variant="secondary" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+          <Button asChild size="lg" variant="secondary" className="bg-secondary hover:gray /90 text-primary-foreground">
             <Link href="/contact">Nous contacter</Link>
           </Button>
 

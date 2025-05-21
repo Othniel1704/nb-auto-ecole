@@ -1,19 +1,13 @@
-
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2259079398.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1066292624.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2231036138.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1899752081.
-
 "use client";
 
 import Link from "next/link";
-import { CarFront, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react"; // Removed CarFront as logo is an img
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { HeroSection } from "./ui/hero-section";
+import { ThemeToggleButton } from "./ThemeToggleButton"; 
 
 const navItems = [
   { href: "/", label: "Accueil" },
@@ -25,7 +19,6 @@ const navItems = [
   { href: "/faq", label: "FAQ" },
   { href: "/news", label: "Actualités" },
   { href: "/contact", label: "Contact" },
-  // { href: "/seo-tools", label: "SEO Tools (Admin)" }, 
 ];
 
 export function Navbar() {
@@ -37,8 +30,26 @@ export function Navbar() {
     setIsMounted(true);
   }, []);
   
+  // Prevents hydration mismatch for theme toggle button
   if (!isMounted) {
-    return null; 
+    return (
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/images/logo.png" alt="logo" className="h-7 w-7 " />
+            <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" className="h-9 w-9 md:h-10 md:w-10" disabled /> {/* Placeholder for theme toggle */}
+            <div className="md:hidden">
+             <Button variant="ghost" size="icon" className="h-9 w-9 md:h-10 md:w-10" disabled>
+                <Menu className="h-6 w-6" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+    );
   }
 
   const NavLinks = ({ mobile = false }: { mobile?: boolean }) => (
@@ -72,19 +83,21 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
- <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src="/images/logo.png" alt="logo" className="h-7 w-7 " />
-            <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
+        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+          <img src="/images/logo.png" alt="logo" className="h-7 w-7 " />
+          <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
         </Link>
 
-        <div className="hidden md:flex mr-3">
+        <div className="hidden md:flex items-center gap-2">
           <NavLinks />
+          <ThemeToggleButton />
         </div>
 
-        <div className="md:hidden">
+        <div className="flex items-center md:hidden">
+          <ThemeToggleButton />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="ml-1 h-9 w-9 md:h-10 md:w-10">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Ouvrir le menu</span>
               </Button>
@@ -93,7 +106,7 @@ export function Navbar() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
- <img src="/images/logo.png" alt="logo" className="h-6 w-6" />
+                      <img src="/images/logo.png" alt="logo" className="h-6 w-6" />
                       <span className="text-lg font-bold text-primary">NB AUTO ÉCOLE</span>
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
