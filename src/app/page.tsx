@@ -14,14 +14,14 @@ export default function HomePage() {
       <HeroSection
         title="NB AUTO ÉCOLE DE LA MAIRIE"
         subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
-        imageUrl="https://placehold.co/1920x800.png"
-        imageAlt="Driving school hero image"
-        imageHint="driving road"
+        imageUrl="/images/hero-driving.jpg"
+        imageAlt="Personne conduisant une voiture, vue de derrière"
+        imageHint="driving car"
         ctaText="Découvrir nos formations"
-        ctaLink="#formations"
+        ctaLink="/formations-tarifs"
       />
 
-      {/* Services/Courses Highlight */}
+      {/* Formations Phares */}
       <section id="formations" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
@@ -30,13 +30,13 @@ export default function HomePage() {
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[ 
-              { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/courses#permis-b" },
-              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/courses#conduite-accompagnee" }, 
-              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" }, 
+            {[
+              { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" },
+              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#conduite-accompagnee" },
+              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" },
             ].map((service, index) => (
-              <Card 
-                key={service.title} 
+              <Card
+                key={service.title}
                 className={cn(
                   "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
                   "animate-fade-in-up",
@@ -65,7 +65,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
       {/* Why Choose Us Section */}
       <section id="avantages" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 animate-fade-in-up">
@@ -84,12 +84,12 @@ export default function HomePage() {
               { title: "Pédagogie Positive", description: "Un environnement d'apprentissage bienveillant pour progresser en toute confiance.", icon: <Smile className="h-12 w-12 text-primary mb-4" /> },
               { title: "Facilités de Paiement", description: "Plusieurs options de paiement pour s'adapter à votre budget.", icon: <CreditCard className="h-12 w-12 text-primary mb-4" /> },
               { title: "Accès Facile", description: "Parking à proximité et bien desservi par les transports en commun.",  icon: <MapPin className="h-12 w-12 text-primary mb-4" /> },
-              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> }, 
+              { title: "Horaires Flexibles", description: "Des horaires d'ouverture étendus et des leçons adaptables à vos disponibilités.", icon: <CalendarClock className="h-12 w-12 text-primary mb-4" /> },
               { title: "Salle de Code Moderne", description: "Un espace dédié et équipé des derniers outils pour l'apprentissage du code.", icon: <Presentation className="h-12 w-12 text-primary mb-4" /> },
               { title: "Label École Qualité", description: "Reconnue pour la qualité de son enseignement et ses services.", icon: <Star className="h-12 w-12 text-primary mb-4" /> },
             ].map((avantage, index) => (
-              <Card 
-                key={avantage.title} 
+              <Card
+                key={avantage.title}
                 className={cn(
                   "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
                   "animate-fade-in-up",
@@ -171,3 +171,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    

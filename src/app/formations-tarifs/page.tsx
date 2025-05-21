@@ -56,8 +56,8 @@ const financingOptions = [
 const paymentMethods = [
   { icon: <CreditCardIcon className="h-5 w-5 mr-2 text-primary" />, name: "Carte Bancaire" },
   { icon: <Banknote className="h-5 w-5 mr-2 text-primary" />, name: "Espèces" },
-  { icon: <Landmark className="h-5 w-5 mr-2 text-primary" />, name: "Chèque" }, 
-  { icon: <Briefcase className="h-5 w-5 mr-2 text-primary" />, name: "Virement Bancaire" }, 
+  { icon: <Landmark className="h-5 w-5 mr-2 text-primary" />, name: "Chèque" },
+  { icon: <Briefcase className="h-5 w-5 mr-2 text-primary" />, name: "Virement Bancaire" },
 ];
 
 
@@ -85,8 +85,8 @@ const FormationsTarifsPage: React.FC = () => {
                 {course.details?.description && <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">{course.details.description}</p>}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {course.packages.map((pkg: PackageItem, index: number) => (
-                    <Card 
-                      key={`${course.id}-${index}`} 
+                    <Card
+                      key={`${course.id}-${index}`}
                       className={cn(
                         "flex flex-col h-full shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out",
                         "animate-fade-in-up",
@@ -99,7 +99,7 @@ const FormationsTarifsPage: React.FC = () => {
                       <CardContent className="p-4 md:p-6 flex-grow space-y-3">
                         <p className="text-2xl font-bold text-accent mb-2">{typeof pkg.price === 'number' ? `${pkg.price} €` : pkg.price}</p>
                         {pkg.duration && <p className="text-sm text-muted-foreground mb-3">Durée indicative : {pkg.duration}</p>}
-                        
+
                         {pkg.features && pkg.features.length > 0 && (
                           <>
                             <h4 className="font-semibold text-foreground flex items-center"><ListChecks className="h-5 w-5 mr-2 text-primary" /> Inclus :</h4>
@@ -116,7 +116,7 @@ const FormationsTarifsPage: React.FC = () => {
                             </ul>
                           </>
                         )}
-                         
+
                         {course.id === "post-permis" && course.details && (
                           <div className="mt-4">
                             {course.details.prerequisites && (
@@ -124,7 +124,36 @@ const FormationsTarifsPage: React.FC = () => {
                                 <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
                                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
                                     { course.details.prerequisites.map((item, idx) => <li key={`prereq-${idx}`}>{item}</li>)}
-          
+
+                                </ul>
+                                </>
+                            )}
+                            {course.details.program && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Programme :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    {course.details.program.map((item, idx) => <li key={`prog-${idx}`}>{item}</li>)}
+                                </ul>
+                                </>
+                            )}
+                            {course.details.advantages && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Avantages :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    {course.details.advantages.map((item, idx) => <li key={`adv-${idx}`}>{item}</li>)}
+                                </ul>
+                                </>
+                            )}
+                          </div>
+                        )}
+                         {course.id === "passerelle-bea-manuelle-2025" && course.details && (
+                          <div className="mt-4">
+                            {course.details.prerequisites && (
+                                <>
+                                <h4 className="font-semibold text-foreground mt-3">Conditions d’éligibilité :</h4>
+                                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
+                                    { course.details.prerequisites.map((item, idx) => <li key={`prereq-${idx}`}>{item}</li>)}
+
                                 </ul>
                                 </>
                             )}
@@ -155,7 +184,7 @@ const FormationsTarifsPage: React.FC = () => {
                     </Card>
                   ))}
                 </div>
-                {course.details?.prerequisites && course.id !== "post-permis" && (
+                {course.details?.prerequisites && course.id !== "post-permis" && course.id !== "passerelle-bea-manuelle-2025" &&(
                     <div className="mt-6 p-4 bg-secondary rounded-md">
                         <h4 className="font-semibold text-foreground mb-2">Prérequis généraux pour {course.title}:</h4>
                         <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground pl-2">
@@ -255,3 +284,5 @@ const FormationsTarifsPage: React.FC = () => {
 };
 
 export default FormationsTarifsPage;
+
+    
