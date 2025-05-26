@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import { Button} from "@/components/ui/button";
@@ -14,14 +13,13 @@ export default function HomePage() {
       <HeroSection
         title="NB AUTO ÉCOLE DE LA MAIRIE"
         subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
-        imageUrl="/images/hero-driving.jpg"
+        imageUrl="https://images.pexels.com/photos/3803162/pexels-photo-3803162.jpeg"
         imageAlt="Personne conduisant une voiture, vue de derrière"
         imageHint="driving car"
         ctaText="Découvrir nos formations"
         ctaLink="/formations-tarifs"
       />
 
-      {/* Formations Phares */}
       <section id="formations" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
@@ -31,28 +29,54 @@ export default function HomePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Permis B", description: "La formation classique pour votre permis voiture.", icon: <Car className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" },
-              { title: "Conduite Accompagnée", description: "Une expérience progressive dès 15 ans.", icon: <Users className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#conduite-accompagnee" },
-              { title: "Permis Boîte Auto", description: "Apprentissage simplifié sur véhicule automatique.", icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />, link: "/formations-tarifs#permis-b" },
+              { 
+                title: "Permis B",
+                description: "La formation classique pour votre permis voiture.",
+                icon: <Car className="h-12 w-12 text-primary mb-4" />,
+                link: "/formations-tarifs#permis-b",
+                image: "https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg"
+              },
+              {
+                title: "Conduite Accompagnée",
+                description: "Une expérience progressive dès 15 ans.",
+                icon: <Users className="h-12 w-12 text-primary mb-4" />,
+                link: "/formations-tarifs#conduite-accompagnee",
+                image: "https://images.pexels.com/photos/7433835/pexels-photo-7433835.jpeg"
+              },
+              {
+                title: "Permis Boîte Auto",
+                description: "Apprentissage simplifié sur véhicule automatique.",
+                icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />,
+                link: "/formations-tarifs#permis-b",
+                image: "https://images.pexels.com/photos/7433831/pexels-photo-7433831.jpeg"
+              },
             ].map((service, index) => (
               <Card
                 key={service.title}
                 className={cn(
-                  "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
+                  "text-center hover-card-effect group image-hover-zoom",
                   "animate-fade-in-up",
                   index === 0 && "animation-delay-200ms",
                   index === 1 && "animation-delay-400ms",
                   index === 2 && "animation-delay-600ms"
                 )}
               >
+                <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
                 <CardHeader className="items-center">
                   {service.icon}
                   <CardTitle className="text-xl group-hover:text-primary md:text-2xl transition-colors">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription> {}
+                  <CardDescription className="mb-4 h-12">{service.description}</CardDescription>
                   <Button asChild variant="link" className="text-primary hover:text-primary/80">
-                     <Link href={service.link}>Détails <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                    <Link href={service.link}>Détails <ArrowRight className="ml-2 h-4 w-4" /></Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -66,7 +90,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section id="avantages" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
@@ -93,7 +116,7 @@ export default function HomePage() {
                 className={cn(
                   "text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out group",
                   "animate-fade-in-up",
-                  `animation-delay-${(index % 3) * 200}ms` // Stagger by column
+                  `animation-delay-${(index % 3) * 200}ms`
                 )}
               >
                 <CardHeader className="items-center">
@@ -109,7 +132,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action & Contact Section */}
       <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à prendre la route ?</h2>
@@ -147,7 +169,6 @@ export default function HomePage() {
             </Card>
           </div>
 
-          {/* Google Map Embed */}
           <div className="mt-12 md:mt-16 animate-fade-in-up animation-delay-600ms">
             <h3 className="text-2xl md:text-3xl font-bold mb-6">Où nous trouver ?</h3>
             <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl">
@@ -171,5 +192,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-    
