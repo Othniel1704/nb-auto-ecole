@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -26,6 +27,7 @@ const mainItems = [
 
 const moreItems = [
   { href: "/labels", label: "Labels" },
+  { href: "/engagements", label: "Nos Engagements" },
   { href: "/faq", label: "FAQ" },
   { href: "/news", label: "Actualités" },
   
