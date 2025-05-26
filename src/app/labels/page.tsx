@@ -11,28 +11,28 @@ const qualityPoints = [
     icon: <Award className="h-10 w-10 text-primary mb-4" />,
     title: "Agrément Préfectoral",
     description: "NB AUTO ÉCOLE DE LA MAIRIE est une auto-école agréée par la Préfecture, garantissant le respect des normes d'enseignement et de sécurité.",
-    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder, replace with actual image path
+    image: "", // Placeholder, replace with actual image path
     imageHint: "official stamp"
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary mb-4" />,
     title: "Moniteurs Diplômés d'État",
     description: "Notre équipe est composée exclusivement de moniteurs titulaires du BEPECASER ou du Titre Professionnel ECSR, assurant une pédagogie de qualité.",
-    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
+    image: "", // Placeholder
     imageHint: "certificate diploma"
   },
   {
     icon: <Star className="h-10 w-10 text-primary mb-4" />,
     title: "Engagement Qualité",
     description: "Nous nous engageons à fournir une formation transparente, un suivi personnalisé et des conditions d'apprentissage optimales pour tous nos élèves.",
-    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
+    image: "", // Placeholder
     imageHint: "quality seal"
   },
   {
     icon: <ThumbsUp className="h-10 w-10 text-primary mb-4" />,
     title: "Taux de Réussite Élevé (Objectif)",
     description: "Nous mettons tout en œuvre pour maximiser vos chances de réussite aux examens du code et de la conduite. Nos méthodes visent un taux de réussite supérieur à la moyenne nationale.",
-    image: "/images/logo_ecole_de_conduite_qualité.png", // Placeholder
+    image: "", // Placeholder
     imageHint: "graph success"
   }
 ];
