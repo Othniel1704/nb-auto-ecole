@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, ShieldCheck, Users, BookOpen } from 'lucide-react';
+import { CheckCircle, ShieldCheck, Users, BookOpen, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const EngagementsPage: React.FC = () => {
@@ -23,7 +24,7 @@ const EngagementsPage: React.FC = () => {
         />
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-200ms">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-200ms hover:-translate-y-1 duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="flex items-center text-primary">
                 <CheckCircle className="h-6 w-6 mr-2" /> Qualité et Transparence
@@ -48,7 +49,7 @@ const EngagementsPage: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-400ms">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up animation-delay-400ms hover:-translate-y-1 duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="flex items-center text-primary">
                 <ShieldCheck className="h-6 w-6 mr-2" /> Votre Satisfaction et Sécurité
@@ -66,13 +67,13 @@ const EngagementsPage: React.FC = () => {
           </Card>
         </div>
 
-        <section className="bg-secondary p-6 md:p-8 rounded-lg shadow-md animate-fade-in-up animation-delay-600ms">
+        <section className="bg-secondary p-6 md:p-8 rounded-lg shadow-md animate-fade-in-up animation-delay-600ms mb-12">
            <SectionTitle
             title="Nos Partenaires Pédagogiques"
             subtitle="Nous collaborons avec des experts reconnus pour vous offrir les meilleurs outils d'apprentissage."
           />
           <div className="flex items-center justify-center">
-            <Card className="max-w-md w-full">
+            <Card className="max-w-md w-full hover:-translate-y-1 duration-300 ease-in-out hover:shadow-lg">
                 <CardHeader>
                     <CardTitle className="flex items-center text-primary">
                         <BookOpen className="h-6 w-6 mr-2"/> Codes Rousseau
@@ -84,6 +85,25 @@ const EngagementsPage: React.FC = () => {
             </Card>
           </div>
         </section>
+
+        <section className="animate-fade-in-up animation-delay-800ms">
+          <SectionTitle
+            title="Soumettre une Réclamation"
+            subtitle="Votre avis est important pour nous. Si vous souhaitez nous faire part d'une réclamation, veuillez utiliser le formulaire ci-dessous. Nous nous engageons à traiter votre demande dans les meilleurs délais."
+            centered
+          />
+          <div className="bg-card p-4 md:p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
+            <iframe 
+              src="https://app.kalio-pi.fr/iframe/claim/form/ec6ea68d48ce569e9b59cca6f2d77d3fe4aa1b16010be7i0b2" 
+              width="100%" 
+              height="550px" 
+              style={{ border:'none' }}
+              title="Formulaire de réclamation Kalio-pi"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </section>
+
       </div>
     </>
   );
