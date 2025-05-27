@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['images.pexels.com'],
+    domains: ['images.pexels.com', 'placehold.co'],
     remotePatterns: [
       {
         protocol: 'https',
