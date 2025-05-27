@@ -20,9 +20,9 @@ export default function ContactPage() {
     <HeroSection
         title="Contactez-Nous"
         subtitle="Nous sommes à votre écoute pour toute question, demande d'information ou inscription."
-        imageUrl="https://placehold.co/1920x800.png"
-        imageAlt="Contact icons background"
-        imageHint="communication icons"
+        imageUrl="https://images.pexels.com/photos/7433831/pexels-photo-7433831.jpeg"
+        imageAlt="Contact et support client"
+        imageHint="customer support"
       />
     <div className="container mx-auto px-4 py-12 md:py-16 animate-fade-in-up">
       <SectionTitle

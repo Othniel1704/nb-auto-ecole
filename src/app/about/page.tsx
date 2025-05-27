@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,7 +16,7 @@ export default function AboutPage() {
       <section className="mb-12 md:mb-16 animate-fade-in-up animation-delay-200ms">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <Image
-            src="https://placehold.co/700x500.png"
+            src="https://images.pexels.com/photos/3803162/pexels-photo-3803162.jpeg"
             alt="Locaux de NB Auto École de la Mairie"
             width={700}
             height={500}

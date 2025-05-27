@@ -13,9 +13,9 @@ export default function HomePage() {
       <HeroSection
         title="NB AUTO ÉCOLE DE LA MAIRIE"
         subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
-        imageUrl="https://images.pexels.com/photos/3803162/pexels-photo-3803162.jpeg"
-        imageAlt="Personne conduisant une voiture, vue de derrière"
-        imageHint="driving car"
+        imageUrl="https://images.pexels.com/photos/7433835/pexels-photo-7433835.jpeg"
+        imageAlt="Jeune conducteur apprenant à conduire"
+        imageHint="driving lesson"
         ctaText="Découvrir nos formations"
         ctaLink="/formations-tarifs"
       />
