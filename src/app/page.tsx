@@ -10,17 +10,35 @@ import { cn } from "@/lib/utils";
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <HeroSection
-        title="NB AUTO ÉCOLE DE LA MAIRIE"
-        subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
-        imageUrl="https://images.pexels.com/photos/7433835/pexels-photo-7433835.jpeg"
-        imageAlt="Jeune conducteur apprenant à conduire"
-        imageHint="driving lesson"
-        ctaText="Découvrir nos formations"
-        ctaLink="/formations-tarifs"
-      />
+      <div className="relative">
+        <HeroSection
+          title="NB AUTO ÉCOLE DE LA MAIRIE"
+          subtitle="Votre partenaire pour la réussite de votre permis de conduire à Vigneux-sur-Seine."
+          imageUrl="https://images.pexels.com/photos/7015865/pexels-photo-7015865.jpeg"
+          imageAlt="Panneau de signalisation routière"
+          imageHint="traffic signs"
+          ctaText="Découvrir nos formations"
+          ctaLink="/formations-tarifs"
+        />
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <Image
+            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
+            alt="Feu tricolore"
+            width={150}
+            height={300}
+            className="absolute top-20 right-10 opacity-60 animate-pulse"
+          />
+          <Image
+            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
+            alt="Panneau Stop"
+            width={100}
+            height={100}
+            className="absolute bottom-20 left-10 opacity-60 rotate-12"
+          />
+        </div>
+      </div>
 
-      <section id="formations" className="py-16 md:py-24 bg-secondary">
+      <section id="formations" className="py-16 md:py-24 bg-secondary relative overflow-hidden">
         <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
             title="Nos Formations Phares"
@@ -34,7 +52,7 @@ export default function HomePage() {
                 description: "La formation classique pour votre permis voiture.",
                 icon: <Car className="h-12 w-12 text-primary mb-4" />,
                 link: "/formations-tarifs#permis-b",
-                image: "https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg"
+                image: "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg"
               },
               {
                 title: "Conduite Accompagnée",
@@ -48,7 +66,7 @@ export default function HomePage() {
                 description: "Apprentissage simplifié sur véhicule automatique.",
                 icon: <ShieldCheck className="h-12 w-12 text-primary mb-4" />,
                 link: "/formations-tarifs#permis-b",
-                image: "https://images.pexels.com/photos/7433831/pexels-photo-7433831.jpeg"
+                image: "https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg"
               },
             ].map((service, index) => (
               <Card
@@ -88,9 +106,27 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
+        <div className="absolute -right-20 top-10 opacity-10">
+          <Image
+            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
+            alt="Feu tricolore décoratif"
+            width={300}
+            height={600}
+            className="rotate-12"
+          />
+        </div>
+        <div className="absolute -left-20 bottom-10 opacity-10">
+          <Image
+            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
+            alt="Panneau Stop décoratif"
+            width={200}
+            height={200}
+            className="-rotate-12"
+          />
+        </div>
       </section>
 
-      <section id="avantages" className="py-16 md:py-24 bg-background">
+      <section id="avantages" className="py-16 md:py-24 bg-background relative">
         <div className="container mx-auto px-4 animate-fade-in-up">
           <SectionTitle
             title="Pourquoi Choisir NB AUTO ÉCOLE ?"
@@ -130,9 +166,18 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+        <div className="absolute right-5 bottom-5 opacity-10">
+          <Image
+            src="https://images.pexels.com/photos/5644439/pexels-photo-5644439.jpeg"
+            alt="Feu tricolore décoratif"
+            width={200}
+            height={400}
+            className="rotate-45"
+          />
+        </div>
       </section>
 
-      <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground relative">
         <div className="container mx-auto px-4 text-center animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à prendre la route ?</h2>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
@@ -187,6 +232,15 @@ export default function HomePage() {
               <Link href="https://auto-ecole.codesrousseau.fr/connexion" target="_blank" rel="noopener noreferrer" className="text-lg underline hover:no-underline hover:text-accent-foreground transition-colors">Accès à l&apos;Espace Élève Codes Rousseau</Link>
             </div>
           </div>
+        </div>
+        <div className="absolute left-5 top-5 opacity-10">
+          <Image
+            src="https://images.pexels.com/photos/4391480/pexels-photo-4391480.jpeg"
+            alt="Panneau Stop décoratif"
+            width={150}
+            height={150}
+            className="-rotate-12"
+          />
         </div>
       </section>
     </div>
