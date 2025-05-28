@@ -22,7 +22,7 @@ const mainItems = [
   { href: "/formations-tarifs", label: "Formules" },
   { href: "/courses", label: "Formation" },
   { href: "/testimonials", label: "Avis" },
-  { href: "/code-de-la-route",label: "code"}
+  { href: "/code-de-la-route",label: "code"},
   { href: "/contact", label: "Contact" },
 ];
 
